@@ -378,7 +378,6 @@ class MicrofinApp(ctk.CTk):
         self.fees_total_value = ctk.CTkLabel(self.admin_frame, text='', font=("Arial", 20), text_color="#d32f2f")
         self.fees_total_value.pack(pady=10)
         self.update_admin_tab()
-
     def update_admin_tab(self):
         # Calcul des frais récoltés
         total_fees = 0.0
@@ -713,7 +712,6 @@ class MicrofinApp(ctk.CTk):
         self.filter_btn.pack(fill='x', pady=2)
         self.show_filters_btn.pack_forget()
         self.reset_history_btn.pack_forget()
-
     def reset_history(self):
         # Réinitialiser tous les champs de filtre et vider la liste
         self.filter_id_entry.delete(0, 'end')
