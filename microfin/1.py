@@ -9,7 +9,9 @@ import datetime
 
 class MicrofinDB:
     def __init__(self, db_name='microfin.db'):
-        self.conn = sqlite3.connect(db_name)
+        import os
+        db_path = os.path.join(os.path.dirname(__file__), db_name)
+        self.conn = sqlite3.connect(db_path)
         self.c = self.conn.cursor()
         self.create_tables()
         self.ensure_solde_column()
@@ -226,25 +228,44 @@ class MicrofinApp(ctk.CTk):
         self.filter_btn.pack(fill='x', pady=2)
         self.history_list = ctk.CTkTextbox(self.history_frame, width=650, height=250, fg_color="#263826", text_color="#c8e6c9")
         self.history_list.pack(fill='both', expand=True, pady=10)
-        # Onglet Recherche avancée
-        self.advanced_filter_tab = self.tabview.add('Recherche avancée')
-        self.adv_frame = ctk.CTkFrame(self.advanced_filter_tab, fg_color="#223322")
-        self.adv_frame.pack(pady=20, padx=20, fill='both', expand=True)
-        self.adv_frame.pack_propagate(0)
-        self.adv_id_entry = ctk.CTkEntry(self.adv_frame, placeholder_text='ID client')
-        self.adv_id_entry.pack(fill='x', pady=2)
-        self.adv_type_option = ctk.CTkOptionMenu(self.adv_frame, values=['Tous', 'Ajouter', 'Retirer', 'Transférer', 'Transfert sortant', 'Transfert entrant'])
-        self.adv_type_option.pack(fill='x', pady=2)
-        self.adv_min_entry = ctk.CTkEntry(self.adv_frame, placeholder_text='Montant min')
-        self.adv_min_entry.pack(fill='x', pady=2)
-        self.adv_max_entry = ctk.CTkEntry(self.adv_frame, placeholder_text='Montant max')
-        self.adv_max_entry.pack(fill='x', pady=2)
-        self.adv_day_entry = ctk.CTkEntry(self.adv_frame, placeholder_text='Jour (AAAA-MM-JJ)')
-        self.adv_day_entry.pack(fill='x', pady=2)
-        self.adv_btn = ctk.CTkButton(self.adv_frame, text='Rechercher', fg_color="#388e3c", hover_color="#2e7d32", text_color="white", command=self.advanced_search)
-        self.adv_btn.pack(fill='x', pady=2)
-        self.adv_list = ctk.CTkTextbox(self.adv_frame, width=650, height=250, fg_color="#263826", text_color="#c8e6c9")
-        self.adv_list.pack(fill='both', expand=True, pady=10)
+        # Onglet Etat Système
+        self.state_tab = self.tabview.add('Etat Système')
+        self.state_frame = ctk.CTkFrame(self.state_tab, fg_color="#223322")
+        self.state_frame.pack(pady=20, padx=20, fill='both', expand=True)
+        self.state_frame.pack_propagate(0)
+        self.state_label = ctk.CTkLabel(self.state_frame, text='', font=("Arial", 18), text_color="#388e3c")
+        self.state_label.pack(fill='x', pady=10)
+        self.update_state_tab()
+        # Onglet Documentation
+        self.doc_tab = self.tabview.add('Documentation')
+        self.doc_frame = ctk.CTkFrame(self.doc_tab, fg_color="#223322")
+        self.doc_frame.pack(pady=20, padx=20, fill='both', expand=True)
+        self.doc_frame.pack_propagate(0)
+        doc_text = (
+            "Bienvenue dans le système de gestion de microfinance !\n\n"
+            "Fonctionnalités principales :\n"
+            "- Ajouter, modifier, supprimer un client\n"
+            "- Gérer les transactions (dépôt, retrait, transfert)\n"
+            "- Historique filtrable par date, heure, type, client\n"
+            "- Blocage automatique des opérations si la date/heure système est incorrecte\n"
+            "- Onglet Etat Système pour vérifier si les opérations sont autorisées\n\n"
+            "Utilisation :\n"
+            "1. Onglet 'Ajouter Client' : Remplissez les champs et cliquez sur Ajouter.\n"
+            "2. Onglet 'Modifier Client' : Saisissez l'ID et les nouvelles infos, puis Modifier.\n"
+            "3. Onglet 'Supprimer Client' : Saisissez l'ID et cliquez sur Supprimer.\n"
+            "4. Onglet 'Transactions' : Saisissez l'ID client, le montant, le type et validez. Pour un transfert, indiquez aussi l'ID bénéficiaire.\n"
+            "5. Onglet 'Historique' : Filtrez les transactions par client, date, heure, type.\n"
+            "6. Onglet 'Etat Système' : Vérifiez si les opérations sont possibles.\n\n"
+            "Règles et sécurité :\n"
+            "- Les champs doivent être remplis correctement (nom/prénom en lettres, téléphone congolais, montant positif).\n"
+            "- Les transactions sont bloquées si la date/heure système est incohérente.\n"
+            "- La base de données est stockée dans le même dossier que le script.\n\n"
+            "Pour toute question ou amélioration, contactez l'administrateur du système."
+        )
+        self.doc_box = ctk.CTkTextbox(self.doc_frame, width=650, height=400, fg_color="#263826", text_color="#c8e6c9")
+        self.doc_box.pack(fill='both', expand=True, pady=10)
+        self.doc_box.insert('end', doc_text)
+        self.doc_box.configure(state='disabled')
     def add_client(self):
         nom = self.nom_entry.get().strip()
         prenom = self.prenom_entry.get().strip()
@@ -461,45 +482,28 @@ class MicrofinApp(ctk.CTk):
             for row in items:
                 self.history_list.insert('end', f'ID:{row[0]} | {row[1]} {row[2]} | {row[3]}€ | {row[5]}\n')
             self.history_list.insert('end', '\n')
-    def advanced_search(self):
-        self.adv_list.delete('0.0', 'end')
-        id_val = self.adv_id_entry.get().strip()
-        type_val = self.adv_type_option.get()
-        min_val = self.adv_min_entry.get().strip()
-        max_val = self.adv_max_entry.get().strip()
-        day_val = self.adv_day_entry.get().strip()
-        # Empêcher la recherche si une information manque
-        if not (id_val and type_val and min_val and max_val and day_val):
-            self.adv_list.insert('end', 'Veuillez remplir tous les champs pour lancer la recherche avancée.\n')
-            return
-        query = "SELECT t.id, c.nom, c.prenom, t.montant, t.type, t.date FROM transactions t JOIN clients c ON t.client_id = c.id WHERE 1=1"
-        params = []
-        if id_val:
-            query += " AND c.id=?"
-            params.append(id_val)
-        if type_val and type_val != 'Tous':
-            query += " AND t.type=?"
-            params.append(type_val)
-        if min_val:
-            query += " AND t.montant>=?"
-            params.append(min_val)
-        if max_val:
-            query += " AND t.montant<=?"
-            params.append(max_val)
-        if day_val:
-            query += " AND t.date LIKE ?"
-            params.append(f'{day_val}%')
-        query += " ORDER BY t.date DESC"
-        self.db.c.execute(query, tuple(params))
-        rows = self.db.c.fetchall()
-        for row in rows:
-            self.adv_list.insert('end', f'ID:{row[0]} | {row[1]} {row[2]} | {row[3]}€ | {row[4]} | {row[5]}\n')
     def toggle_benef_field(self, value):
         if value == 'Transférer':
             self.benef_id_entry.pack(fill='x', pady=2)
         else:
             self.benef_id_entry.pack_forget()
+    def update_state_tab(self):
+        last = self.db.get_last_connexion()
+        import datetime
+        now = datetime.datetime.now()
+        sys_date = now.strftime('%Y-%m-%d')
+        sys_heure = now.strftime('%H:%M:%S')
+        if hasattr(self, 'transactions_disabled') and self.transactions_disabled:
+            self.state_label.configure(text=f"Opérations BLOQUÉES !\nDate système : {sys_date}\nHeure système : {sys_heure}\nDernière connexion : {last[0]} {last[1]}", text_color="#d32f2f")
+        else:
+            self.state_label.configure(text=f"Opérations AUTORISÉES\nDate système : {sys_date}\nHeure système : {sys_heure}\nDernière connexion : {last[0]} {last[1]}", text_color="#388e3c")
+    def on_closing(self):
+        if mbox.askokcancel("Quitter", "Voulez-vous vraiment quitter l'application ?"):
+            self.destroy()
+    def run(self):
+        self.protocol("WM_DELETE_WINDOW", self.on_closing)
+        super().mainloop()
 
 if __name__ == '__main__':
     app = MicrofinApp()
-    app.mainloop()
+    app.run()
