@@ -6,6 +6,7 @@ from datetime import datetime
 import tkinter.messagebox as mbox
 import re
 import datetime
+from decimal import Decimal, ROUND_HALF_UP
 
 class MicrofinDB:
     def __init__(self, db_name='microfin.db'):
@@ -81,21 +82,32 @@ class MicrofinDB:
         client = self.get_client(client_id)
         if not client:
             return False, 'Client introuvable !'
-        solde = client[4]
+        solde = Decimal(str(client[4]))
+        trans_fee, retrait_fee, versement_fee = self.get_fees()
+        trans_fee = Decimal(str(trans_fee))
+        retrait_fee = Decimal(str(retrait_fee))
+        versement_fee = Decimal(str(versement_fee))
+        montant = Decimal(str(montant))
+        frais = Decimal('0')
+        montant_net = montant
         if type_ == 'Ajouter':
-            nouveau_solde = solde + montant
+            frais = (montant * versement_fee / Decimal('100')).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
+            montant_net = (montant - frais).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
+            nouveau_solde = solde + montant_net
         elif type_ == 'Retirer':
+            frais = (montant * retrait_fee / Decimal('100')).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
+            montant_net = (montant - frais).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
             if montant > solde:
                 return False, 'Solde insuffisant !'
             nouveau_solde = solde - montant
         else:
             return False, 'Type de transaction invalide !'
-        now = datetime.now()
+        now = datetime.datetime.now()
         date = now.strftime('%Y-%m-%d %H:%M:%S')
-        self.c.execute('UPDATE clients SET solde=? WHERE id=?', (nouveau_solde, client_id))
-        self.c.execute('INSERT INTO transactions (client_id, montant, type, date) VALUES (?, ?, ?, ?)', (client_id, montant, type_, date))
+        self.c.execute('UPDATE clients SET solde=? WHERE id=?', (float(nouveau_solde), client_id))
+        self.c.execute('INSERT INTO transactions (client_id, montant, type, date) VALUES (?, ?, ?, ?)', (client_id, float(montant_net), type_, date))
         self.conn.commit()
-        return True, f'Transaction enregistrée ({date}) !'
+        return True, f'Transaction enregistrée ({date}) ! Frais déduits : {frais} XAF'
     def get_transactions(self, client_id=None):
         if client_id:
             self.c.execute('SELECT t.id, c.nom, c.prenom, t.montant, t.type, t.date FROM transactions t JOIN clients c ON t.client_id = c.id WHERE c.id=? ORDER BY t.date DESC', (client_id,))
@@ -237,6 +249,8 @@ class MicrofinApp(ctk.CTk):
         self.add_trans_btn.pack(fill='x', pady=2)
         self.trans_status = ctk.CTkLabel(self.trans_tab, text='', text_color="#388e3c")
         self.trans_status.pack(pady=5)
+        self.trans_list = ctk.CTkTextbox(self.trans_frame, width=650, height=200, fg_color="#263826", text_color="#c8e6c9")
+        self.trans_list.pack(fill='both', expand=True, pady=10)
         # Onglet Historique
         # Listes préétablies pour jour, mois (lettres), année
         years = ['None'] + [str(y) for y in range(2025, 2036)]
@@ -436,13 +450,14 @@ class MicrofinApp(ctk.CTk):
         self.client_list.delete('0.0', 'end')
         rows = self.db.get_clients()
         for row in rows:
-            self.client_list.insert('end', f'ID:{row[0]} | {row[1]} {row[2]} | Tel:{row[3]} | Solde:{row[4]}€\n')
+            solde = Decimal(str(row[4])).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
+            self.client_list.insert('end', f'ID:{row[0]} | {row[1]} {row[2]} | Tel:{row[3]} | Solde:{solde:.2f} XAF\n')
     def search_client(self):
         query = self.search_entry.get()
         self.client_list.delete('0.0', 'end')
         rows = self.db.get_clients(search=query)
         for row in rows:
-            self.client_list.insert('end', f'ID:{row[0]} | {row[1]} {row[2]} | Tel:{row[3]} | Solde:{row[4]}€\n')
+            self.client_list.insert('end', f'ID:{row[0]} | {row[1]} {row[2]} | Tel:{row[3]} | Solde:{row[4]} XAF\n')
     def delete_client(self):
         client_id = self.delete_client_id_entry.get().strip()
         if not client_id:
@@ -481,7 +496,7 @@ class MicrofinApp(ctk.CTk):
         if montant <= 0:
             self.trans_status.configure(text='Montant doit être positif !')
             return
-        trans_fee, retrait_fee, versement_fee = self.get_fees()
+        trans_fee, retrait_fee, versement_fee = self.db.get_fees()
         frais = 0
         if type_ == 'Transférer':
             frais = round(montant * trans_fee / 100, 2)
@@ -524,6 +539,8 @@ class MicrofinApp(ctk.CTk):
             self.trans_status.configure(text=f'{msg} (frais {frais} XAF)')
             if ok:
                 self.show_transactions()
+                if hasattr(self, 'update_admin_tab'):
+                    self.update_admin_tab()
             return
         if type_ in ['Ajouter', 'Versement']:
             if not mbox.askyesno('Validation', f'Confirmer l\'opération de {montant} XAF (+{frais} XAF frais) pour le client ID {client_id} ?'):
@@ -533,6 +550,8 @@ class MicrofinApp(ctk.CTk):
             self.trans_status.configure(text=f'{msg} (frais {frais} XAF)')
             if ok:
                 self.show_transactions()
+                if hasattr(self, 'update_admin_tab'):
+                    self.update_admin_tab()
             return
         if not mbox.askyesno('Validation', f'Confirmer la transaction {type_} de {montant} XAF pour le client ID {client_id} ?'):
             self.trans_status.configure(text='Transaction annulée.')
@@ -544,8 +563,24 @@ class MicrofinApp(ctk.CTk):
     def show_transactions(self):
         self.trans_list.delete('0.0', 'end')
         rows = self.db.get_transactions()
+        trans_fee, retrait_fee, versement_fee = self.db.get_fees()
+        trans_fee = Decimal(str(trans_fee))
+        retrait_fee = Decimal(str(retrait_fee))
+        versement_fee = Decimal(str(versement_fee))
         for row in rows:
-            self.trans_list.insert('end', f'ID:{row[0]} | {row[1]} {row[2]} | {row[3]}€ | {row[4]} | {row[5]}\n')
+            montant = Decimal(str(row[3]))
+            ttype = row[4]
+            frais = Decimal('0')
+            if ttype == 'Transfert sortant':
+                frais = (montant * trans_fee / (Decimal('100') + trans_fee)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
+            elif ttype == 'Retirer':
+                frais = (montant * retrait_fee / (Decimal('100') + retrait_fee)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
+            elif ttype in ['Ajouter', 'Versement']:
+                frais = (montant * versement_fee / (Decimal('100') + versement_fee)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
+            self.trans_list.insert('end', f'ID:{row[0]} | {row[1]} {row[2]} | {montant:.2f} XAF | {ttype} | Frais:{frais:.2f} XAF | {row[5]}\n')
+        # Mise à jour automatique de l'onglet Admin
+        if hasattr(self, 'update_admin_tab'):
+            self.update_admin_tab()
     def modify_client(self):
         id = self.modify_id_entry.get().strip()
         nom = self.modify_nom_entry.get().strip()
@@ -579,51 +614,84 @@ class MicrofinApp(ctk.CTk):
         self.history_list.delete('0.0', 'end')
         rows = self.db.get_transactions()
         trans_fee, retrait_fee, versement_fee = self.db.get_fees()
+        trans_fee = Decimal(str(trans_fee))
+        retrait_fee = Decimal(str(retrait_fee))
+        versement_fee = Decimal(str(versement_fee))
         for row in rows:
-            montant = row[3]
+            montant = Decimal(str(row[3]))
             ttype = row[4]
-            frais = 0
+            frais = Decimal('0')
             if ttype == 'Transfert sortant':
-                frais = round((montant * trans_fee) / (100 + trans_fee), 2)
+                frais = (montant * trans_fee / (Decimal('100') + trans_fee)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
             elif ttype == 'Retirer':
-                frais = round((montant * retrait_fee) / (100 + retrait_fee), 2)
+                frais = (montant * retrait_fee / (Decimal('100') + retrait_fee)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
             elif ttype in ['Ajouter', 'Versement']:
-                frais = round((montant * versement_fee) / (100 + versement_fee), 2)
-            self.history_list.insert('end', f'ID:{row[0]} | {row[1]} {row[2]} | {montant}€ | {ttype} | Frais:{frais} XAF | {row[5]}\n')
+                frais = (montant * versement_fee / (Decimal('100') + versement_fee)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
+            self.history_list.insert('end', f'ID:{row[0]} | {row[1]} {row[2]} | {montant:.2f} XAF | {ttype} | Frais:{frais:.2f} XAF | {row[5]}\n')
     def filter_history(self):
-        # Masquer les champs de filtre
-        self.filter_id_label.pack_forget()
-        self.filter_id_entry.pack_forget()
-        self.filter_year_label.pack_forget()
-        self.filter_year_option.pack_forget()
-        self.filter_month_label.pack_forget()
-        self.filter_month_option.pack_forget()
-        self.filter_day_label.pack_forget()
-        self.filter_day_option.pack_forget()
-        self.filter_hour_label.pack_forget()
-        self.filter_hour_option.pack_forget()
-        self.filter_minute_label.pack_forget()
-        self.filter_minute_option.pack_forget()
-        self.filter_second_label.pack_forget()
-        self.filter_second_option.pack_forget()
-        self.filter_type_label.pack_forget()
-        self.filter_type_option.pack_forget()
-        self.filter_btn.pack_forget()
-        self.history_list.pack(fill='both', expand=True, pady=10)
-        # Bouton pour réafficher les filtres
-        if not hasattr(self, 'show_filters_btn'):
-            self.show_filters_btn = ctk.CTkButton(self.history_frame, text='Afficher les filtres', fg_color="#388e3c", hover_color="#2e7d32", text_color="white", command=self.show_history_filters)
-        self.show_filters_btn.pack(pady=10)
-        # Bouton pour recommencer
-        if not hasattr(self, 'reset_history_btn'):
-            self.reset_history_btn = ctk.CTkButton(self.history_frame, text='Recommencer', fg_color="#d32f2f", hover_color="#c62828", text_color="white", command=self.reset_history)
-        self.reset_history_btn.pack(pady=5)
+        self.history_list.delete('0.0', 'end')
+        # Récupération des valeurs des filtres
+        id_val = self.filter_id_entry.get().strip()
+        year_val = self.filter_year_option.get()
+        month_val = self.filter_month_option.get()
+        day_val = self.filter_day_option.get()
+        hour_val = self.filter_hour_option.get()
+        minute_val = self.filter_minute_option.get()
+        second_val = self.filter_second_option.get()
+        type_val = self.filter_type_option.get()
+        # Conversion mois lettre -> chiffre
+        mois_map = {'Janvier':'01','Février':'02','Mars':'03','Avril':'04','Mai':'05','Juin':'06','Juillet':'07','Août':'08','Septembre':'09','Octobre':'10','Novembre':'11','Décembre':'12'}
+        month_num = mois_map.get(month_val, '01')
+        # Construction de la requête SQL
+        query = "SELECT t.id, c.nom, c.prenom, t.montant, t.type, t.date FROM transactions t JOIN clients c ON t.client_id = c.id WHERE 1=1"
+        params = []
+        if id_val:
+            query += " AND c.id=?"
+            params.append(id_val)
+        if type_val and type_val != 'None' and type_val != 'Tous':
+            query += " AND t.type=?"
+            params.append(type_val)
+        # Filtre date
+        date_filter = None
+        time_filter = None
+        if year_val != 'None' and month_val != 'None' and day_val != 'None':
+            date_filter = f'{year_val}-{mois_map.get(month_val, "01")}-{day_val}'
+        elif year_val != 'None' and month_val != 'None':
+            date_filter = f'{year_val}-{mois_map.get(month_val, "01")}'
+        elif year_val != 'None':
+            date_filter = f'{year_val}'
+        if hour_val != 'None' and minute_val != 'None' and second_val != 'None':
+            time_filter = f'{hour_val}:{minute_val}:{second_val}'
+        # Application des filtres
+        if date_filter and time_filter:
+            query += " AND t.date LIKE ?"
+            params.append(f'{date_filter} {time_filter}%')
+        elif date_filter:
+            query += " AND t.date LIKE ?"
+            params.append(f'{date_filter}%')
+        query += " ORDER BY t.type, t.date DESC"
         self.db.c.execute(query, tuple(params))
         rows = self.db.c.fetchall()
+        self.history_list.delete('0.0', 'end')
         if not rows:
             self.history_list.delete('0.0', 'end')
             self.history_list.insert('end', 'Aucune transaction trouvée avec ces filtres.\n')
             return
+        trans_fee, retrait_fee, versement_fee = self.db.get_fees()
+        trans_fee = Decimal(str(trans_fee))
+        retrait_fee = Decimal(str(retrait_fee))
+        versement_fee = Decimal(str(versement_fee))
+        for row in rows:
+            montant = Decimal(str(row[3]))
+            ttype = row[4]
+            frais = Decimal('0')
+            if ttype == 'Transfert sortant':
+                frais = (montant * trans_fee / (Decimal('100') + trans_fee)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
+            elif ttype == 'Retirer':
+                frais = (montant * retrait_fee / (Decimal('100') + retrait_fee)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
+            elif ttype in ['Ajouter', 'Versement']:
+                frais = (montant * versement_fee / (Decimal('100') + versement_fee)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
+            self.history_list.insert('end', f'ID:{row[0]} | {row[1]} {row[2]} | {montant:.2f} XAF | {ttype} | Frais:{frais:.2f} XAF | {row[5]}\n')
     def show_history_filters(self):
         # Réafficher les champs de filtre
         self.filter_id_label.pack(anchor='w')
