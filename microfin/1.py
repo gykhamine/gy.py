@@ -31,6 +31,16 @@ class MicrofinDB:
             date TEXT,
             FOREIGN KEY(client_id) REFERENCES clients(id)
         )''')
+        self.c.execute('''CREATE TABLE IF NOT EXISTS parametres (
+            id INTEGER PRIMARY KEY,
+            transfert REAL,
+            retrait REAL,
+            versement REAL
+        )''')
+        # Initialisation si vide
+        self.c.execute('SELECT COUNT(*) FROM parametres')
+        if self.c.fetchone()[0] == 0:
+            self.c.execute('INSERT INTO parametres (id, transfert, retrait, versement) VALUES (1, 1.0, 0.5, 0.0)')
         self.conn.commit()
     def create_connexion_table(self):
         self.c.execute('''CREATE TABLE IF NOT EXISTS connexion (
@@ -102,6 +112,15 @@ class MicrofinDB:
     def get_last_connexion(self):
         self.c.execute('SELECT date, heure FROM connexion ORDER BY id DESC LIMIT 1')
         return self.c.fetchone()
+    def get_fees(self):
+        self.c.execute('SELECT transfert, retrait, versement FROM parametres WHERE id=1')
+        row = self.c.fetchone()
+        if row:
+            return row
+        return (1.0, 0.5, 0.0)
+    def set_fees(self, transfert, retrait, versement):
+        self.c.execute('UPDATE parametres SET transfert=?, retrait=?, versement=? WHERE id=1', (transfert, retrait, versement))
+        self.conn.commit()
 
 class MicrofinApp(ctk.CTk):
     def __init__(self):
@@ -138,11 +157,17 @@ class MicrofinApp(ctk.CTk):
         self.client_frame = ctk.CTkFrame(self.client_tab, fg_color="#223322")
         self.client_frame.pack(pady=20, padx=20, fill='both', expand=True)
         self.client_frame.pack_propagate(0)
-        # Champs en liste verticale
+        # Labels et champs en liste verticale
+        self.nom_label = ctk.CTkLabel(self.client_frame, text='Nom du client :')
+        self.nom_label.pack(anchor='w')
         self.nom_entry = ctk.CTkEntry(self.client_frame, placeholder_text='Nom')
         self.nom_entry.pack(fill='x', pady=2)
+        self.prenom_label = ctk.CTkLabel(self.client_frame, text='Prénom du client :')
+        self.prenom_label.pack(anchor='w')
         self.prenom_entry = ctk.CTkEntry(self.client_frame, placeholder_text='Prénom')
         self.prenom_entry.pack(fill='x', pady=2)
+        self.tel_label = ctk.CTkLabel(self.client_frame, text='Téléphone (format congolais) :')
+        self.tel_label.pack(anchor='w')
         self.tel_entry = ctk.CTkEntry(self.client_frame, placeholder_text='Téléphone')
         self.tel_entry.pack(fill='x', pady=2)
         self.add_client_btn = ctk.CTkButton(self.client_frame, text='Ajouter', fg_color="#388e3c", hover_color="#2e7d32", text_color="white", command=self.add_client)
@@ -154,12 +179,20 @@ class MicrofinApp(ctk.CTk):
         self.modify_frame = ctk.CTkFrame(self.modify_tab, fg_color="#223322")
         self.modify_frame.pack(pady=20, padx=20, fill='both', expand=True)
         self.modify_frame.pack_propagate(0)
+        self.modify_id_label = ctk.CTkLabel(self.modify_frame, text='ID du client à modifier :')
+        self.modify_id_label.pack(anchor='w')
         self.modify_id_entry = ctk.CTkEntry(self.modify_frame, placeholder_text='ID du client à modifier')
         self.modify_id_entry.pack(fill='x', pady=2)
+        self.modify_nom_label = ctk.CTkLabel(self.modify_frame, text='Nouveau nom :')
+        self.modify_nom_label.pack(anchor='w')
         self.modify_nom_entry = ctk.CTkEntry(self.modify_frame, placeholder_text='Nouveau nom')
         self.modify_nom_entry.pack(fill='x', pady=2)
+        self.modify_prenom_label = ctk.CTkLabel(self.modify_frame, text='Nouveau prénom :')
+        self.modify_prenom_label.pack(anchor='w')
         self.modify_prenom_entry = ctk.CTkEntry(self.modify_frame, placeholder_text='Nouveau prénom')
         self.modify_prenom_entry.pack(fill='x', pady=2)
+        self.modify_tel_label = ctk.CTkLabel(self.modify_frame, text='Nouveau téléphone :')
+        self.modify_tel_label.pack(anchor='w')
         self.modify_tel_entry = ctk.CTkEntry(self.modify_frame, placeholder_text='Nouveau téléphone')
         self.modify_tel_entry.pack(fill='x', pady=2)
         self.modify_btn = ctk.CTkButton(self.modify_frame, text='Modifier', fg_color="#388e3c", hover_color="#2e7d32", text_color="white", command=self.modify_client)
@@ -171,6 +204,8 @@ class MicrofinApp(ctk.CTk):
         self.delete_frame = ctk.CTkFrame(self.delete_tab, fg_color="#223322")
         self.delete_frame.pack(pady=20, padx=20, fill='both', expand=True)
         self.delete_frame.pack_propagate(0)
+        self.delete_client_id_label = ctk.CTkLabel(self.delete_frame, text='ID du client à supprimer :')
+        self.delete_client_id_label.pack(anchor='w')
         self.delete_client_id_entry = ctk.CTkEntry(self.delete_frame, placeholder_text='ID à supprimer')
         self.delete_client_id_entry.pack(fill='x', pady=2)
         self.delete_client_btn = ctk.CTkButton(self.delete_frame, text='Supprimer Client', fg_color="#d32f2f", hover_color="#c62828", text_color="white", command=self.delete_client)
@@ -182,47 +217,76 @@ class MicrofinApp(ctk.CTk):
         self.trans_frame = ctk.CTkFrame(self.trans_tab, fg_color="#223322")
         self.trans_frame.pack(pady=20, padx=20, fill='both', expand=True)
         self.trans_frame.pack_propagate(0)
+        self.client_id_label = ctk.CTkLabel(self.trans_frame, text='ID du client :')
+        self.client_id_label.pack(anchor='w')
         self.client_id_entry = ctk.CTkEntry(self.trans_frame, placeholder_text='ID Client')
         self.client_id_entry.pack(fill='x', pady=2)
+        self.montant_label = ctk.CTkLabel(self.trans_frame, text='Montant de la transaction :')
+        self.montant_label.pack(anchor='w')
         self.montant_entry = ctk.CTkEntry(self.trans_frame, placeholder_text='Montant')
         self.montant_entry.pack(fill='x', pady=2)
+        self.type_label = ctk.CTkLabel(self.trans_frame, text='Type de transaction :')
+        self.type_label.pack(anchor='w')
         self.type_option = ctk.CTkOptionMenu(self.trans_frame, values=['Ajouter', 'Retirer', 'Transférer'], command=self.toggle_benef_field)
         self.type_option.pack(fill='x', pady=2)
+        self.benef_id_label = ctk.CTkLabel(self.trans_frame, text='ID bénéficiaire (pour transfert) :')
         self.benef_id_entry = ctk.CTkEntry(self.trans_frame, placeholder_text='ID bénéficiaire (pour transfert)')
+        self.benef_id_label.pack_forget()
         self.benef_id_entry.pack_forget()
         self.add_trans_btn = ctk.CTkButton(self.trans_frame, text='Enregistrer', fg_color="#388e3c", hover_color="#2e7d32", text_color="white", command=self.add_transaction)
         self.add_trans_btn.pack(fill='x', pady=2)
         self.trans_status = ctk.CTkLabel(self.trans_tab, text='', text_color="#388e3c")
         self.trans_status.pack(pady=5)
         # Onglet Historique
+        # Listes préétablies pour jour, mois (lettres), année
+        years = ['None'] + [str(y) for y in range(2025, 2036)]
+        months = ['None'] + ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre']
+        days = ['None'] + [f'{d:02d}' for d in range(1, 32)]
+        hours = ['None'] + [f'{h:02d}' for h in range(0, 24)]
+        minutes = ['None'] + [f'{m:02d}' for m in range(0, 60)]
+        seconds = ['None'] + [f'{s:02d}' for s in range(0, 60)]
         self.history_tab = self.tabview.add('Historique')
         self.history_frame = ctk.CTkFrame(self.history_tab, fg_color="#223322")
         self.history_frame.pack(pady=20, padx=20, fill='both', expand=True)
         self.history_frame.pack_propagate(0)
+        self.filter_id_label = ctk.CTkLabel(self.history_frame, text='ID client :')
+        self.filter_id_label.pack(anchor='w')
         self.filter_id_entry = ctk.CTkEntry(self.history_frame, placeholder_text='ID client')
         self.filter_id_entry.pack(fill='x', pady=2)
-        # Listes préétablies pour jour, mois (lettres), année
-        years = [str(y) for y in range(2025, 2036)]
-        months = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre']
-        days = [f'{d:02d}' for d in range(1, 32)]
+        self.filter_year_label = ctk.CTkLabel(self.history_frame, text='Année :')
+        self.filter_year_label.pack(anchor='w')
         self.filter_year_option = ctk.CTkOptionMenu(self.history_frame, values=years)
+        self.filter_year_option.set('None')
         self.filter_year_option.pack(fill='x', pady=2)
+        self.filter_month_label = ctk.CTkLabel(self.history_frame, text='Mois :')
+        self.filter_month_label.pack(anchor='w')
         self.filter_month_option = ctk.CTkOptionMenu(self.history_frame, values=months)
+        self.filter_month_option.set('None')
         self.filter_month_option.pack(fill='x', pady=2)
+        self.filter_day_label = ctk.CTkLabel(self.history_frame, text='Jour :')
+        self.filter_day_label.pack(anchor='w')
         self.filter_day_option = ctk.CTkOptionMenu(self.history_frame, values=days)
+        self.filter_day_option.set('None')
         self.filter_day_option.pack(fill='x', pady=2)
-        # Liste préétablie pour heure, minute, seconde
-        hours = [f'{h:02d}' for h in range(0, 24)]
-        minutes = [f'{m:02d}' for m in range(0, 60)]
-        seconds = [f'{s:02d}' for s in range(0, 60)]
+        self.filter_hour_label = ctk.CTkLabel(self.history_frame, text='Heure :')
+        self.filter_hour_label.pack(anchor='w')
         self.filter_hour_option = ctk.CTkOptionMenu(self.history_frame, values=hours)
+        self.filter_hour_option.set('None')
         self.filter_hour_option.pack(fill='x', pady=2)
+        self.filter_minute_label = ctk.CTkLabel(self.history_frame, text='Minute :')
+        self.filter_minute_label.pack(anchor='w')
         self.filter_minute_option = ctk.CTkOptionMenu(self.history_frame, values=minutes)
+        self.filter_minute_option.set('None')
         self.filter_minute_option.pack(fill='x', pady=2)
+        self.filter_second_label = ctk.CTkLabel(self.history_frame, text='Seconde :')
+        self.filter_second_label.pack(anchor='w')
         self.filter_second_option = ctk.CTkOptionMenu(self.history_frame, values=seconds)
+        self.filter_second_option.set('None')
         self.filter_second_option.pack(fill='x', pady=2)
-        # Filtre par type
-        self.filter_type_option = ctk.CTkOptionMenu(self.history_frame, values=['Tous', 'Ajouter', 'Retirer', 'Transférer', 'Transfert sortant', 'Transfert entrant'])
+        self.filter_type_label = ctk.CTkLabel(self.history_frame, text='Type de transaction :')
+        self.filter_type_label.pack(anchor='w')
+        self.filter_type_option = ctk.CTkOptionMenu(self.history_frame, values=['None', 'Tous', 'Ajouter', 'Retirer', 'Transférer', 'Transfert sortant', 'Transfert entrant'])
+        self.filter_type_option.set('None')
         self.filter_type_option.pack(fill='x', pady=2)
         self.filter_btn = ctk.CTkButton(self.history_frame, text='Filtrer', fg_color="#388e3c", hover_color="#2e7d32", text_color="white", command=self.filter_history)
         self.filter_btn.pack(fill='x', pady=2)
@@ -266,6 +330,81 @@ class MicrofinApp(ctk.CTk):
         self.doc_box.pack(fill='both', expand=True, pady=10)
         self.doc_box.insert('end', doc_text)
         self.doc_box.configure(state='disabled')
+        # Onglet Paramètres des frais
+        self.fees_tab = self.tabview.add('Paramètres des frais')
+        self.fees_frame = ctk.CTkFrame(self.fees_tab, fg_color="#223322")
+        self.fees_frame.pack(pady=20, padx=20, fill='both', expand=True)
+        self.fees_frame.pack_propagate(0)
+        self.fees_label = ctk.CTkLabel(self.fees_frame, text='Paramétrage des taxes et frais', font=("Arial", 16), text_color="#388e3c")
+        self.fees_label.pack(pady=10)
+        self.fee_trans_label = ctk.CTkLabel(self.fees_frame, text='Frais transfert (%) :')
+        self.fee_trans_label.pack(anchor='w')
+        self.fee_trans_entry = ctk.CTkEntry(self.fees_frame, placeholder_text='Frais transfert (%)')
+        self.fee_trans_entry.pack(fill='x', pady=2)
+        self.fee_retrait_label = ctk.CTkLabel(self.fees_frame, text='Frais retrait (%) :')
+        self.fee_retrait_label.pack(anchor='w')
+        self.fee_retrait_entry = ctk.CTkEntry(self.fees_frame, placeholder_text='Frais retrait (%)')
+        self.fee_retrait_entry.pack(fill='x', pady=2)
+        self.fee_versement_label = ctk.CTkLabel(self.fees_frame, text='Frais versement (%) :')
+        self.fee_versement_label.pack(anchor='w')
+        self.fee_versement_entry = ctk.CTkEntry(self.fees_frame, placeholder_text='Frais versement (%)')
+        self.fee_versement_entry.pack(fill='x', pady=2)
+        self.save_fees_btn = ctk.CTkButton(self.fees_frame, text='Enregistrer', fg_color="#388e3c", hover_color="#2e7d32", text_color="white", command=self.save_fees)
+        self.save_fees_btn.pack(fill='x', pady=10)
+        self.fees_status = ctk.CTkLabel(self.fees_frame, text='', text_color="#388e3c")
+        self.fees_status.pack(pady=5)
+        self.load_fees()
+        # Onglet Admin
+        self.admin_tab = self.tabview.add('Admin')
+        self.admin_frame = ctk.CTkFrame(self.admin_tab, fg_color="#223322")
+        self.admin_frame.pack(pady=20, padx=20, fill='both', expand=True)
+        self.admin_frame.pack_propagate(0)
+        self.fees_total_label = ctk.CTkLabel(self.admin_frame, text='Somme totale des frais récoltés :', font=("Arial", 16), text_color="#388e3c")
+        self.fees_total_label.pack(pady=10)
+        self.fees_total_value = ctk.CTkLabel(self.admin_frame, text='', font=("Arial", 20), text_color="#d32f2f")
+        self.fees_total_value.pack(pady=10)
+        self.update_admin_tab()
+
+    def update_admin_tab(self):
+        # Calcul des frais récoltés
+        total_fees = 0.0
+        self.db.c.execute("SELECT montant, type, date, client_id FROM transactions")
+        rows = self.db.c.fetchall()
+        trans_fee, retrait_fee, versement_fee = self.db.get_fees()
+        for row in rows:
+            montant, ttype, date, client_id = row
+            # On récupère le client pour le solde initial si besoin
+            if ttype == 'Transfert sortant':
+                # Frais sur le montant transféré
+                frais = round((montant * trans_fee) / (100 + trans_fee), 2)
+                total_fees += frais
+            elif ttype == 'Retirer':
+                frais = round((montant * retrait_fee) / (100 + retrait_fee), 2)
+                total_fees += frais
+            elif ttype in ['Ajouter', 'Versement']:
+                frais = round((montant * versement_fee) / (100 + versement_fee), 2)
+                total_fees += frais
+        self.fees_total_value.configure(text=f"{total_fees:.2f} XAF")
+    def load_fees(self):
+        trans, retrait, versement = self.db.get_fees()
+        self.fee_trans_entry.delete(0, 'end')
+        self.fee_trans_entry.insert(0, str(trans))
+        self.fee_retrait_entry.delete(0, 'end')
+        self.fee_retrait_entry.insert(0, str(retrait))
+        self.fee_versement_entry.delete(0, 'end')
+        self.fee_versement_entry.insert(0, str(versement))
+    def save_fees(self):
+        trans = self.fee_trans_entry.get().strip()
+        retrait = self.fee_retrait_entry.get().strip()
+        versement = self.fee_versement_entry.get().strip()
+        try:
+            trans_val = float(trans)
+            retrait_val = float(retrait)
+            versement_val = float(versement)
+            self.db.set_fees(trans_val, retrait_val, versement_val)
+            self.fees_status.configure(text='Frais enregistrés !')
+        except Exception:
+            self.fees_status.configure(text='Valeurs invalides !')
     def add_client(self):
         nom = self.nom_entry.get().strip()
         prenom = self.prenom_entry.get().strip()
@@ -288,13 +427,15 @@ class MicrofinApp(ctk.CTk):
             self.client_status.configure(text='Ajout annulé.')
             return
         ok, msg = self.db.add_client(nom, prenom, tel)
-        self.client_status.configure(text=msg)
         if ok:
+            self.client_status.configure(text=msg)
             self.show_clients()
+        else:
+            self.client_status.configure(text=msg)
     def show_clients(self):
         self.client_list.delete('0.0', 'end')
         rows = self.db.get_clients()
-        for row in row,s:
+        for row in rows:
             self.client_list.insert('end', f'ID:{row[0]} | {row[1]} {row[2]} | Tel:{row[3]} | Solde:{row[4]}€\n')
     def search_client(self):
         query = self.search_entry.get()
@@ -340,13 +481,15 @@ class MicrofinApp(ctk.CTk):
         if montant <= 0:
             self.trans_status.configure(text='Montant doit être positif !')
             return
+        trans_fee, retrait_fee, versement_fee = self.get_fees()
         frais = 0
-        # Gestion des frais (exemple : 1% sur transfert, 0.5% sur retrait)
         if type_ == 'Transférer':
-            frais = round(montant * 0.01, 2)
+            frais = round(montant * trans_fee / 100, 2)
         elif type_ == 'Retirer':
-            frais = round(montant * 0.005, 2)
-        montant_total = montant + frais if type_ in ['Transférer', 'Retirer'] else montant
+            frais = round(montant * retrait_fee / 100, 2)
+        elif type_ in ['Ajouter', 'Versement']:
+            frais = round(montant * versement_fee / 100, 2)
+        montant_total = montant + frais if type_ in ['Transférer', 'Retirer', 'Ajouter', 'Versement'] else montant
         if not client_id.isdigit():
             self.trans_status.configure(text='ID client invalide !')
             return
@@ -357,7 +500,7 @@ class MicrofinApp(ctk.CTk):
             if client_id == benef_id:
                 self.trans_status.configure(text='Impossible de transférer à soi-même !')
                 return
-            if not mbox.askyesno('Validation', f'Confirmer le transfert de {montant}€ (+{frais}€ frais) du client {client_id} vers {benef_id} ?'):
+            if not mbox.askyesno('Validation', f'Confirmer le transfert de {montant} XAF (+{frais} XAF frais) du client {client_id} vers {benef_id} ?'):
                 self.trans_status.configure(text='Transfert annulé.')
                 return
             emetteur = self.db.get_client(client_id)
@@ -370,19 +513,28 @@ class MicrofinApp(ctk.CTk):
                 return
             self.db.add_transaction(client_id, montant_total, 'Transfert sortant')
             self.db.add_transaction(benef_id, montant, 'Transfert entrant')
-            self.trans_status.configure(text=f'Transfert de {montant}€ effectué ! (frais {frais}€)')
+            self.trans_status.configure(text=f'Transfert de {montant} XAF effectué ! (frais {frais} XAF)')
             self.show_transactions()
             return
         if type_ == 'Retirer':
-            if not mbox.askyesno('Validation', f'Confirmer le retrait de {montant}€ (+{frais}€ frais) pour le client ID {client_id} ?'):
+            if not mbox.askyesno('Validation', f'Confirmer le retrait de {montant} XAF (+{frais} XAF frais) pour le client ID {client_id} ?'):
                 self.trans_status.configure(text='Retrait annulé.')
                 return
             ok, msg = self.db.add_transaction(client_id, montant_total, type_)
-            self.trans_status.configure(text=f'{msg} (frais {frais}€)')
+            self.trans_status.configure(text=f'{msg} (frais {frais} XAF)')
             if ok:
                 self.show_transactions()
             return
-        if not mbox.askyesno('Validation', f'Confirmer la transaction {type_} de {montant}€ pour le client ID {client_id} ?'):
+        if type_ in ['Ajouter', 'Versement']:
+            if not mbox.askyesno('Validation', f'Confirmer l\'opération de {montant} XAF (+{frais} XAF frais) pour le client ID {client_id} ?'):
+                self.trans_status.configure(text='Opération annulée.')
+                return
+            ok, msg = self.db.add_transaction(client_id, montant_total, type_)
+            self.trans_status.configure(text=f'{msg} (frais {frais} XAF)')
+            if ok:
+                self.show_transactions()
+            return
+        if not mbox.askyesno('Validation', f'Confirmer la transaction {type_} de {montant} XAF pour le client ID {client_id} ?'):
             self.trans_status.configure(text='Transaction annulée.')
             return
         ok, msg = self.db.add_transaction(client_id, montant, type_)
@@ -426,62 +578,86 @@ class MicrofinApp(ctk.CTk):
     def show_history(self):
         self.history_list.delete('0.0', 'end')
         rows = self.db.get_transactions()
+        trans_fee, retrait_fee, versement_fee = self.db.get_fees()
         for row in rows:
-            self.history_list.insert('end', f'ID:{row[0]} | {row[1]} {row[2]} | {row[3]}€ | {row[4]} | {row[5]}\n')
+            montant = row[3]
+            ttype = row[4]
+            frais = 0
+            if ttype == 'Transfert sortant':
+                frais = round((montant * trans_fee) / (100 + trans_fee), 2)
+            elif ttype == 'Retirer':
+                frais = round((montant * retrait_fee) / (100 + retrait_fee), 2)
+            elif ttype in ['Ajouter', 'Versement']:
+                frais = round((montant * versement_fee) / (100 + versement_fee), 2)
+            self.history_list.insert('end', f'ID:{row[0]} | {row[1]} {row[2]} | {montant}€ | {ttype} | Frais:{frais} XAF | {row[5]}\n')
     def filter_history(self):
-        self.history_list.delete('0.0', 'end')
-        id_val = self.filter_id_entry.get().strip()
-        year_val = self.filter_year_option.get()
-        month_val = self.filter_month_option.get()
-        day_val = self.filter_day_option.get()
-        hour_val = self.filter_hour_option.get()
-        minute_val = self.filter_minute_option.get()
-        second_val = self.filter_second_option.get()
-        type_val = self.filter_type_option.get()
-        # Conversion mois lettre -> chiffre
-        mois_map = {'Janvier':'01','Février':'02','Mars':'03','Avril':'04','Mai':'05','Juin':'06','Juillet':'07','Août':'08','Septembre':'09','Octobre':'10','Novembre':'11','Décembre':'12'}
-        month_num = mois_map.get(month_val, '01')
-        query = "SELECT t.id, c.nom, c.prenom, t.montant, t.type, t.date FROM transactions t JOIN clients c ON t.client_id = c.id WHERE 1=1"
-        params = []
-        if id_val:
-            query += " AND c.id=?"
-            params.append(id_val)
-        if type_val and type_val != 'Tous':
-            query += " AND t.type=?"
-            params.append(type_val)
-        # Filtre date
-        date_filter = f'{year_val}-{month_num}-{day_val}'
-        time_filter = f'{hour_val}:{minute_val}:{second_val}'
-        if year_val and month_val and day_val and hour_val and minute_val and second_val:
-            query += " AND t.date LIKE ?"
-            params.append(f'{date_filter} {time_filter}%')
-        elif year_val and month_val and day_val:
-            query += " AND t.date LIKE ?"
-            params.append(f'{date_filter}%')
-        elif year_val and month_val:
-            query += " AND t.date LIKE ?"
-            params.append(f'{year_val}-{month_num}%')
-        elif year_val:
-            query += " AND t.date LIKE ?"
-            params.append(f'{year_val}%')
-        query += " ORDER BY t.type, t.date DESC"
+        # Masquer les champs de filtre
+        self.filter_id_label.pack_forget()
+        self.filter_id_entry.pack_forget()
+        self.filter_year_label.pack_forget()
+        self.filter_year_option.pack_forget()
+        self.filter_month_label.pack_forget()
+        self.filter_month_option.pack_forget()
+        self.filter_day_label.pack_forget()
+        self.filter_day_option.pack_forget()
+        self.filter_hour_label.pack_forget()
+        self.filter_hour_option.pack_forget()
+        self.filter_minute_label.pack_forget()
+        self.filter_minute_option.pack_forget()
+        self.filter_second_label.pack_forget()
+        self.filter_second_option.pack_forget()
+        self.filter_type_label.pack_forget()
+        self.filter_type_option.pack_forget()
+        self.filter_btn.pack_forget()
+        self.history_list.pack(fill='both', expand=True, pady=10)
+        # Bouton pour réafficher les filtres
+        if not hasattr(self, 'show_filters_btn'):
+            self.show_filters_btn = ctk.CTkButton(self.history_frame, text='Afficher les filtres', fg_color="#388e3c", hover_color="#2e7d32", text_color="white", command=self.show_history_filters)
+        self.show_filters_btn.pack(pady=10)
+        # Bouton pour recommencer
+        if not hasattr(self, 'reset_history_btn'):
+            self.reset_history_btn = ctk.CTkButton(self.history_frame, text='Recommencer', fg_color="#d32f2f", hover_color="#c62828", text_color="white", command=self.reset_history)
+        self.reset_history_btn.pack(pady=5)
         self.db.c.execute(query, tuple(params))
         rows = self.db.c.fetchall()
         if not rows:
+            self.history_list.delete('0.0', 'end')
             self.history_list.insert('end', 'Aucune transaction trouvée avec ces filtres.\n')
             return
-        # Regroupement par type
-        grouped = {}
-        for row in rows:
-            ttype = row[4]
-            if ttype not in grouped:
-                grouped[ttype] = []
-            grouped[ttype].append(row)
-        for ttype, items in grouped.items():
-            self.history_list.insert('end', f'--- {ttype} ---\n')
-            for row in items:
-                self.history_list.insert('end', f'ID:{row[0]} | {row[1]} {row[2]} | {row[3]}€ | {row[5]}\n')
-            self.history_list.insert('end', '\n')
+    def show_history_filters(self):
+        # Réafficher les champs de filtre
+        self.filter_id_label.pack(anchor='w')
+        self.filter_id_entry.pack(fill='x', pady=2)
+        self.filter_year_label.pack(anchor='w')
+        self.filter_year_option.pack(fill='x', pady=2)
+        self.filter_month_label.pack(anchor='w')
+        self.filter_month_option.pack(fill='x', pady=2)
+        self.filter_day_label.pack(anchor='w')
+        self.filter_day_option.pack(fill='x', pady=2)
+        self.filter_hour_label.pack(anchor='w')
+        self.filter_hour_option.pack(fill='x', pady=2)
+        self.filter_minute_label.pack(anchor='w')
+        self.filter_minute_option.pack(fill='x', pady=2)
+        self.filter_second_label.pack(anchor='w')
+        self.filter_second_option.pack(fill='x', pady=2)
+        self.filter_type_label.pack(anchor='w')
+        self.filter_type_option.pack(fill='x', pady=2)
+        self.filter_btn.pack(fill='x', pady=2)
+        self.show_filters_btn.pack_forget()
+        self.reset_history_btn.pack_forget()
+
+    def reset_history(self):
+        # Réinitialiser tous les champs de filtre et vider la liste
+        self.filter_id_entry.delete(0, 'end')
+        self.filter_year_option.set('None')
+        self.filter_month_option.set('None')
+        self.filter_day_option.set('None')
+        self.filter_hour_option.set('None')
+        self.filter_minute_option.set('None')
+        self.filter_second_option.set('None')
+        self.filter_type_option.set('None')
+        self.history_list.delete('0.0', 'end')
+        self.show_history_filters()
     def toggle_benef_field(self, value):
         if value == 'Transférer':
             self.benef_id_entry.pack(fill='x', pady=2)
