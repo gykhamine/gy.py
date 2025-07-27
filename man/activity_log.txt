@@ -1801,3 +1801,669 @@
 [2025-07-27 00:46:13] Clavier - Touche pressée : a
 [2025-07-27 00:46:14] Clavier - Touche pressée : v
 [2025-07-27 00:46:16] Clavier - Touche spéciale : Key.f5
+[2025-07-27 06:15:04] Souris - Clic à (1545, 139) avec le bouton Button.left
+[2025-07-27 06:15:53] Souris - Clic à (1644, 172) avec le bouton Button.left
+[2025-07-27 06:18:12] Souris - Clic à (926, 149) avec le bouton Button.left
+[2025-07-27 06:18:24] Souris - Clic à (631, 586) avec le bouton Button.left
+[2025-07-27 06:18:26] Clavier - Touche spéciale : Key.menu
+[2025-07-27 06:18:26] Clavier - Touche pressée : a
+[2025-07-27 06:18:28] Clavier - Touche spéciale : Key.ctrl_r
+[2025-07-27 06:18:29] Clavier - Touche pressée : a
+[2025-07-27 06:18:30] Clavier - Touche pressée : v
+[2025-07-27 06:18:31] Clavier - Touche spéciale : Key.f5
+[2025-07-27 06:18:44] Souris - Clic à (714, 723) avec le bouton Button.left
+[2025-07-27 06:18:45] Souris - Clic à (712, 732) avec le bouton Button.left
+[2025-07-27 06:18:47] Souris - Clic à (712, 732) avec le bouton Button.left
+[2025-07-27 06:18:51] Souris - Clic à (1327, 412) avec le bouton Button.left
+[2025-07-27 06:18:59] Souris - Clic à (1094, 333) avec le bouton Button.left
+[2025-07-27 06:21:17] Souris - Clic à (866, 658) avec le bouton Button.left
+[2025-07-27 06:21:18] Clavier - Touche spéciale : Key.ctrl_r
+[2025-07-27 06:21:19] Clavier - Touche pressée : a
+[2025-07-27 06:21:19] Clavier - Touche pressée : v
+[2025-07-27 06:21:22] Clavier - Touche spéciale : Key.f5
+[2025-07-27 06:21:32] Souris - Clic à (1338, 236) avec le bouton Button.left
+[2025-07-27 06:21:33] Souris - Clic à (1337, 237) avec le bouton Button.left
+[2025-07-27 06:21:38] Souris - Clic à (1324, 299) avec le bouton Button.left
+[2025-07-27 06:21:41] Souris - Clic à (1098, 394) avec le bouton Button.left
+[2025-07-27 06:21:42] Souris - Clic à (1322, 374) avec le bouton Button.left
+[2025-07-27 06:21:43] Souris - Clic à (1322, 374) avec le bouton Button.left
+[2025-07-27 06:21:59] Souris - Clic à (1325, 430) avec le bouton Button.left
+[2025-07-27 06:22:00] Souris - Clic à (1323, 429) avec le bouton Button.left
+[2025-07-27 06:22:08] Souris - Clic à (1316, 230) avec le bouton Button.left
+[2025-07-27 06:22:09] Souris - Clic à (1334, 238) avec le bouton Button.left
+[2025-07-27 06:22:10] Souris - Clic à (1335, 239) avec le bouton Button.left
+[2025-07-27 06:23:31] Souris - Clic à (873, 641) avec le bouton Button.left
+[2025-07-27 06:23:32] Clavier - Touche spéciale : Key.ctrl_r
+[2025-07-27 06:23:33] Clavier - Touche pressée : a
+[2025-07-27 06:23:34] Clavier - Touche pressée : v
+[2025-07-27 06:23:37] Clavier - Touche spéciale : Key.f5
+[2025-07-27 06:23:43] Souris - Clic à (1389, 207) avec le bouton Button.left
+[2025-07-27 06:23:44] Souris - Clic à (1389, 207) avec le bouton Button.left
+[2025-07-27 06:23:46] Souris - Clic à (1355, 166) avec le bouton Button.left
+[2025-07-27 06:23:48] Souris - Clic à (1877, 90) avec le bouton Button.left
+[2025-07-27 06:27:00] Souris - Clic à (1327, 461) avec le bouton Button.left
+[2025-07-27 06:27:01] Clavier - Touche spéciale : Key.ctrl_r
+[2025-07-27 06:27:02] Clavier - Touche pressée : a
+[2025-07-27 06:27:03] Clavier - Touche pressée : v
+[2025-07-27 06:27:04] Clavier - Touche spéciale : Key.ctrl
+[2025-07-27 06:27:05] Clavier - Touche spéciale : Key.f5
+[2025-07-27 06:27:26] Souris - Clic à (1368, 225) avec le bouton Button.left
+[2025-07-27 06:27:34] Souris - Clic à (1080, 233) avec le bouton Button.left
+[2025-07-27 06:27:36] Souris - Clic à (1211, 299) avec le bouton Button.left
+[2025-07-27 06:27:36] Souris - Clic à (1206, 282) avec le bouton Button.left
+[2025-07-27 06:27:40] Souris - Clic à (1159, 217) avec le bouton Button.left
+[2025-07-27 06:27:41] Souris - Clic à (1161, 216) avec le bouton Button.left
+[2025-07-27 06:27:42] Souris - Clic à (1163, 217) avec le bouton Button.left
+[2025-07-27 06:27:43] Souris - Clic à (1182, 217) avec le bouton Button.left
+[2025-07-27 06:27:46] Souris - Clic à (1532, 288) avec le bouton Button.left
+[2025-07-27 06:27:47] Souris - Clic à (1529, 279) avec le bouton Button.left
+[2025-07-27 06:27:53] Souris - Clic à (406, 1010) avec le bouton Button.left
+[2025-07-27 06:27:58] Souris - Clic à (105, 952) avec le bouton Button.right
+[2025-07-27 06:27:59] Souris - Clic à (177, 977) avec le bouton Button.left
+[2025-07-27 06:29:01] Souris - Clic à (970, 700) avec le bouton Button.left
+[2025-07-27 06:29:03] Clavier - Touche spéciale : Key.ctrl_r
+[2025-07-27 06:29:03] Clavier - Touche pressée : a
+[2025-07-27 06:29:03] Clavier - Touche pressée : v
+[2025-07-27 06:29:05] Clavier - Touche spéciale : Key.f5
+[2025-07-27 06:29:11] Clavier - Touche spéciale : Key.f5
+[2025-07-27 06:31:11] Souris - Clic à (795, 702) avec le bouton Button.left
+[2025-07-27 06:31:12] Clavier - Touche spéciale : Key.ctrl_r
+[2025-07-27 06:31:13] Clavier - Touche pressée : a
+[2025-07-27 06:31:13] Clavier - Touche pressée : v
+[2025-07-27 06:31:14] Clavier - Touche spéciale : Key.ctrl
+[2025-07-27 06:31:15] Clavier - Touche spéciale : Key.f5
+[2025-07-27 06:31:58] Souris - Clic à (1341, 164) avec le bouton Button.left
+[2025-07-27 06:32:05] Souris - Clic à (789, 122) avec le bouton Button.left
+[2025-07-27 06:32:24] Souris - Clic à (878, 287) avec le bouton Button.left
+[2025-07-27 06:32:27] Souris - Clic à (870, 308) avec le bouton Button.left
+[2025-07-27 06:32:31] Souris - Clic à (543, 508) avec le bouton Button.left
+[2025-07-27 06:32:36] Souris - Clic à (87, 95) avec le bouton Button.left
+[2025-07-27 06:32:39] Clavier - Touche pressée : 4
+[2025-07-27 06:32:39] Clavier - Touche pressée : 0
+[2025-07-27 06:32:43] Clavier - Touche spéciale : Key.enter
+[2025-07-27 06:32:43] Clavier - Touche spéciale : Key.enter
+[2025-07-27 06:33:17] Souris - Clic à (774, 143) avec le bouton Button.left
+[2025-07-27 06:33:19] Souris - Clic à (660, 396) avec le bouton Button.right
+[2025-07-27 06:33:19] Souris - Clic à (660, 396) avec le bouton Button.left
+[2025-07-27 06:33:20] Souris - Clic à (663, 355) avec le bouton Button.left
+[2025-07-27 06:33:24] Souris - Clic à (1495, 766) avec le bouton Button.left
+[2025-07-27 06:33:30] Souris - Clic à (1267, 464) avec le bouton Button.left
+[2025-07-27 06:33:32] Souris - Clic à (115, 98) avec le bouton Button.left
+[2025-07-27 06:33:37] Souris - Clic à (303, 1014) avec le bouton Button.left
+[2025-07-27 06:33:41] Souris - Clic à (162, 928) avec le bouton Button.right
+[2025-07-27 06:33:43] Souris - Clic à (427, 764) avec le bouton Button.left
+[2025-07-27 06:34:14] Souris - Clic à (712, 651) avec le bouton Button.left
+[2025-07-27 06:34:16] Clavier - Touche spéciale : Key.ctrl_r
+[2025-07-27 06:34:17] Clavier - Touche pressée : z
+[2025-07-27 06:34:17] Clavier - Touche pressée : z
+[2025-07-27 06:34:18] Clavier - Touche pressée : z
+[2025-07-27 06:34:19] Clavier - Touche pressée : z
+[2025-07-27 06:34:20] Clavier - Touche pressée : z
+[2025-07-27 06:34:20] Clavier - Touche pressée : z
+[2025-07-27 06:34:27] Souris - Clic à (124, 90) avec le bouton Button.left
+[2025-07-27 06:34:45] Souris - Clic à (1489, 153) avec le bouton Button.left
+[2025-07-27 06:34:47] Souris - Clic à (751, 418) avec le bouton Button.left
+[2025-07-27 06:34:49] Clavier - Touche spéciale : Key.ctrl_r
+[2025-07-27 06:34:50] Clavier - Touche pressée : z
+[2025-07-27 06:34:52] Clavier - Touche pressée : z
+[2025-07-27 06:34:55] Clavier - Touche spéciale : Key.ctrl_r
+[2025-07-27 06:34:56] Clavier - Touche pressée : z
+[2025-07-27 06:34:56] Clavier - Touche pressée : z
+[2025-07-27 06:34:57] Clavier - Touche pressée : y
+[2025-07-27 06:34:59] Clavier - Touche spéciale : Key.f5
+[2025-07-27 06:35:04] Clavier - Touche spéciale : Key.f5
+[2025-07-27 06:35:16] Souris - Clic à (757, 685) avec le bouton Button.left
+[2025-07-27 06:35:17] Souris - Clic à (600, 590) avec le bouton Button.left
+[2025-07-27 06:35:20] Souris - Clic à (625, 435) avec le bouton Button.left
+[2025-07-27 06:35:21] Souris - Clic à (632, 418) avec le bouton Button.left
+[2025-07-27 06:35:23] Souris - Clic à (1494, 147) avec le bouton Button.left
+[2025-07-27 06:37:59] Souris - Clic à (26, 87) avec le bouton Button.left
+[2025-07-27 06:38:00] Souris - Clic à (226, 244) avec le bouton Button.right
+[2025-07-27 06:38:02] Souris - Clic à (232, 367) avec le bouton Button.left
+[2025-07-27 06:38:03] Clavier - Touche spéciale : Key.enter
+[2025-07-27 06:38:05] Clavier - Touche spéciale : Key.f5
+[2025-07-27 06:39:44] Souris - Clic à (1412, 97) avec le bouton Button.left
+[2025-07-27 06:39:53] Souris - Clic à (1894, 146) avec le bouton Button.left
+[2025-07-27 06:40:14] Souris - Clic à (147, 964) avec le bouton Button.left
+[2025-07-27 06:40:15] Souris - Clic à (110, 1004) avec le bouton Button.left
+[2025-07-27 06:40:17] Souris - Clic à (158, 964) avec le bouton Button.left
+[2025-07-27 06:40:22] Souris - Clic à (150, 1045) avec le bouton Button.left
+[2025-07-27 06:40:23] Souris - Clic à (150, 1046) avec le bouton Button.left
+[2025-07-27 06:40:25] Souris - Clic à (46, 1032) avec le bouton Button.left
+[2025-07-27 06:40:34] Souris - Clic à (1891, 462) avec le bouton Button.left
+[2025-07-27 06:46:31] Souris - Clic à (928, 477) avec le bouton Button.left
+[2025-07-27 06:46:33] Clavier - Touche spéciale : Key.ctrl_r
+[2025-07-27 06:46:34] Clavier - Touche pressée : a
+[2025-07-27 06:46:34] Clavier - Touche pressée : v
+[2025-07-27 06:46:36] Clavier - Touche spéciale : Key.f5
+[2025-07-27 06:46:42] Clavier - Touche pressée : è
+[2025-07-27 06:46:42] Clavier - Touche pressée : "
+[2025-07-27 06:46:42] Clavier - Touche pressée : '
+[2025-07-27 06:46:42] Clavier - Touche pressée : è
+[2025-07-27 06:46:43] Clavier - Touche pressée : è
+[2025-07-27 06:46:43] Clavier - Touche pressée : "
+[2025-07-27 06:46:43] Clavier - Touche pressée : '
+[2025-07-27 06:46:43] Clavier - Touche pressée : '
+[2025-07-27 06:46:43] Clavier - Touche pressée : è
+[2025-07-27 06:46:43] Clavier - Touche pressée : "
+[2025-07-27 06:46:43] Clavier - Touche pressée : "
+[2025-07-27 06:46:43] Clavier - Touche pressée : '
+[2025-07-27 06:46:43] Clavier - Touche pressée : è
+[2025-07-27 06:46:43] Clavier - Touche pressée : '
+[2025-07-27 06:46:44] Clavier - Touche pressée : "
+[2025-07-27 06:46:44] Clavier - Touche pressée : '
+[2025-07-27 06:46:44] Clavier - Touche pressée : è
+[2025-07-27 06:46:44] Clavier - Touche pressée : è
+[2025-07-27 06:46:44] Clavier - Touche pressée : "
+[2025-07-27 06:46:44] Clavier - Touche pressée : '
+[2025-07-27 06:46:44] Clavier - Touche pressée : '
+[2025-07-27 06:46:44] Clavier - Touche pressée : è
+[2025-07-27 06:46:44] Clavier - Touche pressée : "
+[2025-07-27 06:46:44] Clavier - Touche pressée : "
+[2025-07-27 06:46:44] Clavier - Touche pressée : '
+[2025-07-27 06:46:44] Clavier - Touche pressée : è
+[2025-07-27 06:46:44] Clavier - Touche pressée : è
+[2025-07-27 06:46:44] Clavier - Touche pressée : "
+[2025-07-27 06:46:44] Clavier - Touche pressée : '
+[2025-07-27 06:46:44] Clavier - Touche pressée : _
+[2025-07-27 06:46:45] Clavier - Touche pressée : '
+[2025-07-27 06:46:45] Clavier - Touche pressée : è
+[2025-07-27 06:46:45] Clavier - Touche pressée : "
+[2025-07-27 06:46:45] Clavier - Touche pressée : "
+[2025-07-27 06:46:45] Clavier - Touche pressée : '
+[2025-07-27 06:46:45] Clavier - Touche pressée : è
+[2025-07-27 06:46:45] Clavier - Touche pressée : "
+[2025-07-27 06:46:45] Clavier - Touche pressée : '
+[2025-07-27 06:46:45] Clavier - Touche pressée : è
+[2025-07-27 06:46:45] Clavier - Touche pressée : è
+[2025-07-27 06:46:45] Clavier - Touche pressée : "
+[2025-07-27 06:46:45] Clavier - Touche pressée : '
+[2025-07-27 06:46:45] Clavier - Touche pressée : '
+[2025-07-27 06:46:45] Clavier - Touche pressée : è
+[2025-07-27 06:46:45] Clavier - Touche pressée : "
+[2025-07-27 06:46:46] Clavier - Touche pressée : "
+[2025-07-27 06:46:46] Clavier - Touche pressée : '
+[2025-07-27 06:46:46] Clavier - Touche pressée : è
+[2025-07-27 06:46:46] Clavier - Touche pressée : "
+[2025-07-27 06:46:46] Clavier - Touche pressée : '
+[2025-07-27 06:46:46] Clavier - Touche pressée : è
+[2025-07-27 06:48:45] Souris - Clic à (16, 88) avec le bouton Button.left
+[2025-07-27 06:48:47] Souris - Clic à (315, 319) avec le bouton Button.right
+[2025-07-27 06:48:51] Souris - Clic à (380, 453) avec le bouton Button.left
+[2025-07-27 06:48:53] Souris - Clic à (83, 94) avec le bouton Button.left
+[2025-07-27 06:48:56] Clavier - Touche pressée : 4
+[2025-07-27 06:48:57] Clavier - Touche pressée : 1
+[2025-07-27 06:49:01] Clavier - Touche spéciale : Key.enter
+[2025-07-27 06:49:01] Clavier - Touche spéciale : Key.enter
+[2025-07-27 06:49:21] Souris - Clic à (1461, 63) avec le bouton Button.left
+[2025-07-27 06:49:24] Souris - Clic à (1890, 351) avec le bouton Button.left
+[2025-07-27 06:49:26] Souris - Clic à (1851, 398) avec le bouton Button.left
+[2025-07-27 06:49:27] Souris - Clic à (1893, 386) avec le bouton Button.left
+[2025-07-27 06:49:33] Souris - Clic à (1896, 424) avec le bouton Button.left
+[2025-07-27 06:49:37] Souris - Clic à (1898, 345) avec le bouton Button.left
+[2025-07-27 06:49:38] Souris - Clic à (1894, 360) avec le bouton Button.left
+[2025-07-27 06:49:39] Souris - Clic à (1851, 378) avec le bouton Button.left
+[2025-07-27 06:49:41] Souris - Clic à (1889, 388) avec le bouton Button.left
+[2025-07-27 06:49:41] Souris - Clic à (1889, 388) avec le bouton Button.left
+[2025-07-27 06:49:47] Souris - Clic à (333, 389) avec le bouton Button.left
+[2025-07-27 06:49:49] Souris - Clic à (331, 386) avec le bouton Button.left
+[2025-07-27 06:51:01] Clavier - Touche pressée : "
+[2025-07-27 06:51:01] Clavier - Touche pressée : '
+[2025-07-27 06:51:01] Clavier - Touche pressée : è
+[2025-07-27 06:51:01] Clavier - Touche pressée : '
+[2025-07-27 06:51:01] Clavier - Touche pressée : è
+[2025-07-27 06:51:02] Clavier - Touche pressée : è
+[2025-07-27 06:51:02] Clavier - Touche pressée : "
+[2025-07-27 06:51:02] Clavier - Touche pressée : '
+[2025-07-27 06:51:02] Clavier - Touche pressée : '
+[2025-07-27 06:51:02] Clavier - Touche pressée : è
+[2025-07-27 06:51:02] Clavier - Touche pressée : "
+[2025-07-27 06:51:02] Clavier - Touche pressée : '
+[2025-07-27 06:51:02] Clavier - Touche pressée : è
+[2025-07-27 06:51:02] Clavier - Touche pressée : "
+[2025-07-27 06:51:06] Clavier - Touche spéciale : Key.backspace
+[2025-07-27 06:51:06] Clavier - Touche spéciale : Key.backspace
+[2025-07-27 06:51:06] Clavier - Touche spéciale : Key.backspace
+[2025-07-27 06:51:06] Clavier - Touche spéciale : Key.backspace
+[2025-07-27 06:51:06] Clavier - Touche spéciale : Key.backspace
+[2025-07-27 06:51:06] Clavier - Touche spéciale : Key.backspace
+[2025-07-27 06:51:07] Clavier - Touche spéciale : Key.backspace
+[2025-07-27 06:51:07] Clavier - Touche spéciale : Key.backspace
+[2025-07-27 06:51:07] Clavier - Touche spéciale : Key.backspace
+[2025-07-27 06:51:07] Clavier - Touche spéciale : Key.backspace
+[2025-07-27 06:51:07] Clavier - Touche spéciale : Key.backspace
+[2025-07-27 06:51:07] Clavier - Touche spéciale : Key.backspace
+[2025-07-27 06:51:08] Clavier - Touche spéciale : Key.backspace
+[2025-07-27 06:51:08] Clavier - Touche spéciale : Key.backspace
+[2025-07-27 06:51:09] Clavier - Touche spéciale : Key.f5
+[2025-07-27 06:51:16] Souris - Clic à (686, 351) avec le bouton Button.left
+[2025-07-27 06:51:21] Souris - Clic à (1171, 491) avec le bouton Button.left
+[2025-07-27 06:51:21] Souris - Clic à (1170, 489) avec le bouton Button.left
+[2025-07-27 06:51:22] Souris - Clic à (1129, 478) avec le bouton Button.left
+[2025-07-27 06:51:23] Souris - Clic à (1129, 478) avec le bouton Button.left
+[2025-07-27 06:51:25] Souris - Clic à (1130, 477) avec le bouton Button.left
+[2025-07-27 06:51:26] Souris - Clic à (1130, 477) avec le bouton Button.left
+[2025-07-27 06:51:32] Souris - Clic à (787, 603) avec le bouton Button.left
+[2025-07-27 06:51:32] Souris - Clic à (787, 603) avec le bouton Button.left
+[2025-07-27 06:51:33] Souris - Clic à (795, 549) avec le bouton Button.left
+[2025-07-27 06:51:34] Souris - Clic à (800, 515) avec le bouton Button.left
+[2025-07-27 06:51:34] Souris - Clic à (800, 515) avec le bouton Button.left
+[2025-07-27 06:51:35] Souris - Clic à (774, 579) avec le bouton Button.left
+[2025-07-27 06:51:36] Souris - Clic à (774, 583) avec le bouton Button.left
+[2025-07-27 06:51:37] Souris - Clic à (781, 527) avec le bouton Button.left
+[2025-07-27 06:51:37] Souris - Clic à (781, 527) avec le bouton Button.left
+[2025-07-27 06:51:44] Souris - Clic à (833, 582) avec le bouton Button.left
+[2025-07-27 06:51:44] Souris - Clic à (833, 582) avec le bouton Button.left
+[2025-07-27 06:51:47] Souris - Clic à (789, 544) avec le bouton Button.left
+[2025-07-27 06:51:48] Souris - Clic à (1144, 670) avec le bouton Button.left
+[2025-07-27 06:51:53] Souris - Clic à (1335, 309) avec le bouton Button.left
+[2025-07-27 06:53:53] Souris - Clic à (681, 690) avec le bouton Button.left
+[2025-07-27 06:53:54] Clavier - Touche spéciale : Key.ctrl_r
+[2025-07-27 06:53:57] Clavier - Touche pressée : a
+[2025-07-27 06:53:57] Clavier - Touche pressée : v
+[2025-07-27 06:53:59] Clavier - Touche spéciale : Key.f5
+[2025-07-27 06:54:21] Souris - Clic à (629, 324) avec le bouton Button.left
+[2025-07-27 06:54:29] Souris - Clic à (878, 570) avec le bouton Button.left
+[2025-07-27 06:54:29] Souris - Clic à (878, 570) avec le bouton Button.left
+[2025-07-27 06:54:44] Souris - Clic à (649, 322) avec le bouton Button.left
+[2025-07-27 06:54:47] Souris - Clic à (1172, 479) avec le bouton Button.left
+[2025-07-27 06:54:47] Souris - Clic à (1172, 479) avec le bouton Button.left
+[2025-07-27 06:54:48] Souris - Clic à (1172, 479) avec le bouton Button.left
+[2025-07-27 06:54:48] Souris - Clic à (1170, 480) avec le bouton Button.left
+[2025-07-27 06:54:49] Souris - Clic à (1158, 488) avec le bouton Button.left
+[2025-07-27 06:54:49] Souris - Clic à (1158, 488) avec le bouton Button.left
+[2025-07-27 06:54:50] Souris - Clic à (1158, 488) avec le bouton Button.left
+[2025-07-27 06:54:50] Souris - Clic à (1158, 488) avec le bouton Button.left
+[2025-07-27 06:54:51] Souris - Clic à (1117, 494) avec le bouton Button.left
+[2025-07-27 06:54:53] Souris - Clic à (776, 609) avec le bouton Button.left
+[2025-07-27 06:54:53] Souris - Clic à (776, 609) avec le bouton Button.left
+[2025-07-27 06:54:54] Souris - Clic à (776, 609) avec le bouton Button.left
+[2025-07-27 06:54:55] Souris - Clic à (776, 609) avec le bouton Button.left
+[2025-07-27 06:54:56] Souris - Clic à (805, 525) avec le bouton Button.left
+[2025-07-27 06:54:56] Souris - Clic à (805, 525) avec le bouton Button.left
+[2025-07-27 06:54:57] Souris - Clic à (784, 595) avec le bouton Button.left
+[2025-07-27 06:54:58] Souris - Clic à (782, 593) avec le bouton Button.left
+[2025-07-27 06:54:58] Souris - Clic à (782, 593) avec le bouton Button.left
+[2025-07-27 06:55:00] Souris - Clic à (1151, 487) avec le bouton Button.left
+[2025-07-27 06:55:02] Souris - Clic à (789, 529) avec le bouton Button.left
+[2025-07-27 06:55:02] Souris - Clic à (789, 529) avec le bouton Button.left
+[2025-07-27 06:55:04] Souris - Clic à (822, 588) avec le bouton Button.left
+[2025-07-27 06:55:04] Souris - Clic à (822, 588) avec le bouton Button.left
+[2025-07-27 06:55:05] Souris - Clic à (1088, 585) avec le bouton Button.left
+[2025-07-27 06:55:07] Souris - Clic à (1159, 677) avec le bouton Button.left
+[2025-07-27 06:55:14] Souris - Clic à (1354, 194) avec le bouton Button.left
+[2025-07-27 06:58:42] Souris - Clic à (1247, 408) avec le bouton Button.left
+[2025-07-27 06:58:43] Clavier - Touche spéciale : Key.ctrl_r
+[2025-07-27 06:58:44] Clavier - Touche pressée : a
+[2025-07-27 06:58:45] Clavier - Touche pressée : v
+[2025-07-27 06:58:46] Clavier - Touche spéciale : Key.f5
+[2025-07-27 06:58:56] Souris - Clic à (609, 297) avec le bouton Button.left
+[2025-07-27 06:59:01] Souris - Clic à (874, 565) avec le bouton Button.left
+[2025-07-27 06:59:03] Souris - Clic à (1143, 679) avec le bouton Button.left
+[2025-07-27 06:59:11] Souris - Clic à (628, 277) avec le bouton Button.left
+[2025-07-27 06:59:13] Souris - Clic à (1138, 670) avec le bouton Button.left
+[2025-07-27 06:59:16] Souris - Clic à (1178, 484) avec le bouton Button.left
+[2025-07-27 06:59:17] Souris - Clic à (1159, 488) avec le bouton Button.left
+[2025-07-27 06:59:19] Souris - Clic à (1150, 486) avec le bouton Button.left
+[2025-07-27 06:59:20] Souris - Clic à (1150, 486) avec le bouton Button.left
+[2025-07-27 06:59:21] Souris - Clic à (1148, 487) avec le bouton Button.left
+[2025-07-27 06:59:22] Souris - Clic à (1148, 487) avec le bouton Button.left
+[2025-07-27 06:59:23] Souris - Clic à (793, 607) avec le bouton Button.left
+[2025-07-27 06:59:23] Souris - Clic à (793, 607) avec le bouton Button.left
+[2025-07-27 06:59:24] Souris - Clic à (802, 526) avec le bouton Button.left
+[2025-07-27 06:59:24] Souris - Clic à (802, 526) avec le bouton Button.left
+[2025-07-27 06:59:25] Souris - Clic à (770, 587) avec le bouton Button.left
+[2025-07-27 06:59:25] Souris - Clic à (770, 587) avec le bouton Button.left
+[2025-07-27 06:59:26] Souris - Clic à (768, 520) avec le bouton Button.left
+[2025-07-27 06:59:26] Souris - Clic à (768, 520) avec le bouton Button.left
+[2025-07-27 06:59:28] Souris - Clic à (808, 586) avec le bouton Button.left
+[2025-07-27 06:59:28] Souris - Clic à (808, 587) avec le bouton Button.left
+[2025-07-27 06:59:30] Souris - Clic à (797, 607) avec le bouton Button.left
+[2025-07-27 06:59:31] Souris - Clic à (1172, 673) avec le bouton Button.left
+[2025-07-27 07:03:12] Souris - Clic à (770, 792) avec le bouton Button.left
+[2025-07-27 07:03:14] Clavier - Touche spéciale : Key.ctrl_r
+[2025-07-27 07:03:14] Clavier - Touche pressée : a
+[2025-07-27 07:03:15] Clavier - Touche pressée : v
+[2025-07-27 07:03:17] Clavier - Touche spéciale : Key.f5
+[2025-07-27 07:03:26] Souris - Clic à (656, 297) avec le bouton Button.left
+[2025-07-27 07:03:30] Souris - Clic à (1154, 502) avec le bouton Button.left
+[2025-07-27 07:03:30] Souris - Clic à (1154, 502) avec le bouton Button.left
+[2025-07-27 07:03:30] Souris - Clic à (1154, 502) avec le bouton Button.left
+[2025-07-27 07:03:31] Souris - Clic à (1157, 489) avec le bouton Button.left
+[2025-07-27 07:03:31] Souris - Clic à (1157, 489) avec le bouton Button.left
+[2025-07-27 07:03:31] Souris - Clic à (1157, 489) avec le bouton Button.left
+[2025-07-27 07:03:31] Souris - Clic à (1157, 489) avec le bouton Button.left
+[2025-07-27 07:03:32] Souris - Clic à (1157, 489) avec le bouton Button.left
+[2025-07-27 07:03:32] Souris - Clic à (1157, 489) avec le bouton Button.left
+[2025-07-27 07:03:33] Souris - Clic à (1157, 489) avec le bouton Button.left
+[2025-07-27 07:03:34] Souris - Clic à (1157, 489) avec le bouton Button.left
+[2025-07-27 07:03:35] Souris - Clic à (797, 612) avec le bouton Button.left
+[2025-07-27 07:03:35] Souris - Clic à (797, 612) avec le bouton Button.left
+[2025-07-27 07:03:37] Souris - Clic à (809, 522) avec le bouton Button.left
+[2025-07-27 07:03:37] Souris - Clic à (809, 522) avec le bouton Button.left
+[2025-07-27 07:03:38] Souris - Clic à (764, 584) avec le bouton Button.left
+[2025-07-27 07:03:38] Souris - Clic à (764, 584) avec le bouton Button.left
+[2025-07-27 07:03:39] Souris - Clic à (761, 518) avec le bouton Button.left
+[2025-07-27 07:03:39] Souris - Clic à (761, 518) avec le bouton Button.left
+[2025-07-27 07:03:40] Souris - Clic à (788, 584) avec le bouton Button.left
+[2025-07-27 07:03:40] Souris - Clic à (788, 584) avec le bouton Button.left
+[2025-07-27 07:03:42] Souris - Clic à (1103, 607) avec le bouton Button.left
+[2025-07-27 07:03:42] Souris - Clic à (1166, 673) avec le bouton Button.left
+[2025-07-27 07:03:46] Souris - Clic à (1428, 234) avec le bouton Button.left
+[2025-07-27 07:04:15] Souris - Clic à (1431, 372) avec le bouton Button.left
+[2025-07-27 07:04:20] Souris - Clic à (1429, 414) avec le bouton Button.left
+[2025-07-27 07:04:26] Souris - Clic à (870, 386) avec le bouton Button.left
+[2025-07-27 07:04:29] Souris - Clic à (818, 393) avec le bouton Button.right
+[2025-07-27 07:04:31] Souris - Clic à (823, 384) avec le bouton Button.right
+[2025-07-27 07:04:33] Clavier - Touche spéciale : Key.ctrl_r
+[2025-07-27 07:04:34] Clavier - Touche pressée : c
+[2025-07-27 07:05:43] Souris - Clic à (1432, 419) avec le bouton Button.left
+[2025-07-27 07:08:21] Souris - Clic à (766, 671) avec le bouton Button.left
+[2025-07-27 07:08:22] Clavier - Touche spéciale : Key.ctrl_r
+[2025-07-27 07:08:24] Clavier - Touche pressée : a
+[2025-07-27 07:08:25] Clavier - Touche pressée : v
+[2025-07-27 07:08:26] Clavier - Touche spéciale : Key.f5
+[2025-07-27 07:08:35] Souris - Clic à (659, 278) avec le bouton Button.left
+[2025-07-27 07:08:46] Souris - Clic à (1166, 492) avec le bouton Button.left
+[2025-07-27 07:08:48] Souris - Clic à (830, 516) avec le bouton Button.left
+[2025-07-27 07:08:49] Souris - Clic à (830, 516) avec le bouton Button.left
+[2025-07-27 07:08:50] Souris - Clic à (1160, 482) avec le bouton Button.left
+[2025-07-27 07:08:51] Souris - Clic à (1160, 482) avec le bouton Button.left
+[2025-07-27 07:08:52] Souris - Clic à (1160, 482) avec le bouton Button.left
+[2025-07-27 07:08:53] Souris - Clic à (1160, 482) avec le bouton Button.left
+[2025-07-27 07:08:54] Souris - Clic à (1160, 482) avec le bouton Button.left
+[2025-07-27 07:08:57] Souris - Clic à (814, 607) avec le bouton Button.left
+[2025-07-27 07:08:57] Souris - Clic à (814, 607) avec le bouton Button.left
+[2025-07-27 07:09:04] Souris - Clic à (817, 527) avec le bouton Button.left
+[2025-07-27 07:09:04] Souris - Clic à (817, 527) avec le bouton Button.left
+[2025-07-27 07:09:08] Souris - Clic à (755, 590) avec le bouton Button.left
+[2025-07-27 07:09:09] Souris - Clic à (755, 590) avec le bouton Button.left
+[2025-07-27 07:09:10] Souris - Clic à (765, 528) avec le bouton Button.left
+[2025-07-27 07:09:10] Souris - Clic à (765, 528) avec le bouton Button.left
+[2025-07-27 07:09:14] Souris - Clic à (841, 592) avec le bouton Button.left
+[2025-07-27 07:09:14] Souris - Clic à (841, 592) avec le bouton Button.left
+[2025-07-27 07:09:16] Souris - Clic à (1044, 585) avec le bouton Button.left
+[2025-07-27 07:09:17] Souris - Clic à (1165, 671) avec le bouton Button.left
+[2025-07-27 07:09:33] Souris - Clic à (1434, 235) avec le bouton Button.left
+[2025-07-27 07:09:50] Souris - Clic à (1431, 726) avec le bouton Button.left
+[2025-07-27 07:11:35] Souris - Clic à (848, 749) avec le bouton Button.left
+[2025-07-27 07:11:36] Clavier - Touche spéciale : Key.ctrl_r
+[2025-07-27 07:11:36] Clavier - Touche pressée : a
+[2025-07-27 07:11:37] Clavier - Touche pressée : v
+[2025-07-27 07:11:38] Clavier - Touche spéciale : Key.f5
+[2025-07-27 07:11:49] Souris - Clic à (633, 289) avec le bouton Button.left
+[2025-07-27 07:11:54] Souris - Clic à (1158, 483) avec le bouton Button.left
+[2025-07-27 07:11:55] Souris - Clic à (1155, 492) avec le bouton Button.left
+[2025-07-27 07:11:56] Souris - Clic à (1155, 492) avec le bouton Button.left
+[2025-07-27 07:11:57] Souris - Clic à (1155, 492) avec le bouton Button.left
+[2025-07-27 07:11:58] Souris - Clic à (800, 524) avec le bouton Button.left
+[2025-07-27 07:11:58] Souris - Clic à (800, 524) avec le bouton Button.left
+[2025-07-27 07:12:00] Souris - Clic à (778, 591) avec le bouton Button.left
+[2025-07-27 07:12:00] Souris - Clic à (778, 591) avec le bouton Button.left
+[2025-07-27 07:12:02] Souris - Clic à (763, 524) avec le bouton Button.left
+[2025-07-27 07:12:02] Souris - Clic à (763, 524) avec le bouton Button.left
+[2025-07-27 07:12:04] Souris - Clic à (807, 589) avec le bouton Button.left
+[2025-07-27 07:12:04] Souris - Clic à (806, 590) avec le bouton Button.left
+[2025-07-27 07:12:07] Souris - Clic à (1081, 613) avec le bouton Button.left
+[2025-07-27 07:12:08] Souris - Clic à (1154, 670) avec le bouton Button.left
+[2025-07-27 07:12:15] Souris - Clic à (1429, 234) avec le bouton Button.left
+[2025-07-27 07:13:07] Souris - Clic à (1432, 237) avec le bouton Button.left
+[2025-07-27 07:13:09] Souris - Clic à (1033, 798) avec le bouton Button.left
+[2025-07-27 07:13:12] Souris - Clic à (922, 599) avec le bouton Button.right
+[2025-07-27 07:13:14] Souris - Clic à (934, 586) avec le bouton Button.right
+[2025-07-27 07:13:15] Clavier - Touche spéciale : Key.ctrl_r
+[2025-07-27 07:13:16] Clavier - Touche pressée : c
+[2025-07-27 07:15:31] Souris - Clic à (765, 722) avec le bouton Button.left
+[2025-07-27 07:15:32] Clavier - Touche spéciale : Key.ctrl_r
+[2025-07-27 07:15:33] Clavier - Touche pressée : a
+[2025-07-27 07:15:33] Clavier - Touche pressée : v
+[2025-07-27 07:15:35] Clavier - Touche spéciale : Key.f5
+[2025-07-27 07:15:46] Souris - Clic à (566, 659) avec le bouton Button.left
+[2025-07-27 07:15:48] Clavier - Touche spéciale : Key.ctrl_r
+[2025-07-27 07:15:48] Clavier - Touche pressée : z
+[2025-07-27 07:15:49] Clavier - Touche pressée : z
+[2025-07-27 07:15:49] Clavier - Touche spéciale : Key.ctrl
+[2025-07-27 07:15:50] Clavier - Touche spéciale : Key.ctrl_r
+[2025-07-27 07:15:50] Clavier - Touche pressée : a
+[2025-07-27 07:15:51] Clavier - Touche pressée : v
+[2025-07-27 07:15:52] Clavier - Touche spéciale : Key.f5
+[2025-07-27 07:16:06] Souris - Clic à (610, 275) avec le bouton Button.left
+[2025-07-27 07:16:11] Souris - Clic à (1060, 588) avec le bouton Button.left
+[2025-07-27 07:16:18] Souris - Clic à (1148, 679) avec le bouton Button.left
+[2025-07-27 07:16:24] Souris - Clic à (1431, 229) avec le bouton Button.left
+[2025-07-27 07:16:39] Souris - Clic à (1432, 674) avec le bouton Button.left
+[2025-07-27 07:16:51] Souris - Clic à (780, 262) avec le bouton Button.left
+[2025-07-27 07:17:11] Clavier - Touche spéciale : Key.shift_r
+[2025-07-27 07:17:11] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:12] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:12] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:12] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:12] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:12] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:12] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:12] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:12] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:12] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:12] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:12] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:12] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:12] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:12] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:12] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:12] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:12] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:12] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:13] Clavier - Touche spéciale : Key.shift_r
+[2025-07-27 07:17:14] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:15] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:15] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:15] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:15] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:15] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:15] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:15] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:15] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:15] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:15] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:15] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:15] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:15] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:15] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:15] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:15] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:15] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:15] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:15] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:15] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:15] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:15] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:15] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:15] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:15] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:15] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:16] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:16] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:16] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:16] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:16] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:16] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:16] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:16] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:16] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:16] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:16] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:16] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:16] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:16] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:16] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:22] Clavier - Touche spéciale : Key.ctrl_r
+[2025-07-27 07:17:22] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:23] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:23] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:23] Clavier - Touche spéciale : Key.shift_r
+[2025-07-27 07:17:24] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:24] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:24] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:24] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:24] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:24] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:24] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:24] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:24] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:24] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:24] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:24] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:24] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:24] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:24] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:25] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:25] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:25] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:25] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:25] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:25] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:25] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:25] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:25] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:25] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:25] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:25] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:25] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:25] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:25] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:25] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:25] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:25] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:25] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:25] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:25] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:25] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:25] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:25] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:25] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:25] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:25] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:25] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:25] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:17:25] Clavier - Touche spéciale : Key.down
+[2025-07-27 07:18:22] Clavier - Touche spéciale : Key.ctrl_r
+[2025-07-27 07:18:25] Clavier - Touche pressée : c
+[2025-07-27 07:18:28] Souris - Clic à (1442, 167) avec le bouton Button.left
+[2025-07-27 07:21:34] Souris - Clic à (869, 747) avec le bouton Button.left
+[2025-07-27 07:21:36] Clavier - Touche spéciale : Key.ctrl_r
+[2025-07-27 07:21:36] Clavier - Touche pressée : a
+[2025-07-27 07:21:37] Clavier - Touche pressée : v
+[2025-07-27 07:21:38] Clavier - Touche spéciale : Key.f5
+[2025-07-27 07:21:44] Souris - Clic à (644, 283) avec le bouton Button.left
+[2025-07-27 07:21:49] Souris - Clic à (778, 584) avec le bouton Button.left
+[2025-07-27 07:21:50] Souris - Clic à (1149, 670) avec le bouton Button.left
+[2025-07-27 07:22:07] Souris - Clic à (1431, 229) avec le bouton Button.left
+[2025-07-27 07:22:14] Souris - Clic à (1427, 225) avec le bouton Button.left
+[2025-07-27 07:22:29] Souris - Clic à (1433, 252) avec le bouton Button.left
+[2025-07-27 07:24:25] Souris - Clic à (708, 657) avec le bouton Button.left
+[2025-07-27 07:24:26] Clavier - Touche spéciale : Key.ctrl_r
+[2025-07-27 07:24:27] Clavier - Touche pressée : a
+[2025-07-27 07:24:28] Clavier - Touche pressée : v
+[2025-07-27 07:24:29] Clavier - Touche spéciale : Key.f5
+[2025-07-27 07:24:36] Souris - Clic à (633, 289) avec le bouton Button.left
+[2025-07-27 07:24:40] Souris - Clic à (1053, 571) avec le bouton Button.left
+[2025-07-27 07:24:41] Souris - Clic à (1170, 667) avec le bouton Button.left
+[2025-07-27 07:25:37] Souris - Clic à (665, 302) avec le bouton Button.left
+[2025-07-27 07:25:39] Souris - Clic à (1097, 602) avec le bouton Button.left
+[2025-07-27 07:25:40] Souris - Clic à (1173, 683) avec le bouton Button.left
+[2025-07-27 07:25:58] Souris - Clic à (1110, 551) avec le bouton Button.left
+[2025-07-27 07:26:01] Souris - Clic à (1071, 550) avec le bouton Button.right
+[2025-07-27 07:26:04] Clavier - Touche spéciale : Key.ctrl_r
+[2025-07-27 07:26:05] Clavier - Touche pressée : c
+[2025-07-27 07:28:21] Souris - Clic à (798, 682) avec le bouton Button.left
+[2025-07-27 07:28:22] Clavier - Touche spéciale : Key.ctrl_r
+[2025-07-27 07:28:23] Clavier - Touche pressée : a
+[2025-07-27 07:28:24] Clavier - Touche pressée : v
+[2025-07-27 07:28:26] Clavier - Touche spéciale : Key.f5
+[2025-07-27 07:28:37] Souris - Clic à (603, 297) avec le bouton Button.left
+[2025-07-27 07:28:41] Souris - Clic à (1067, 607) avec le bouton Button.left
+[2025-07-27 07:28:41] Souris - Clic à (1121, 672) avec le bouton Button.left
+[2025-07-27 07:31:43] Souris - Clic à (801, 710) avec le bouton Button.left
+[2025-07-27 07:31:44] Clavier - Touche spéciale : Key.ctrl_r
+[2025-07-27 07:31:45] Clavier - Touche pressée : a
+[2025-07-27 07:31:46] Clavier - Touche pressée : v
+[2025-07-27 07:31:47] Clavier - Touche spéciale : Key.f5
+[2025-07-27 07:31:56] Souris - Clic à (657, 284) avec le bouton Button.left
+[2025-07-27 07:32:00] Souris - Clic à (1096, 607) avec le bouton Button.left
+[2025-07-27 07:32:00] Souris - Clic à (1166, 667) avec le bouton Button.left
+[2025-07-27 07:32:18] Souris - Clic à (977, 739) avec le bouton Button.left
+[2025-07-27 07:32:24] Souris - Clic à (813, 590) avec le bouton Button.right
+[2025-07-27 07:32:25] Souris - Clic à (693, 1024) avec le bouton Button.left
+[2025-07-27 07:32:26] Souris - Clic à (865, 992) avec le bouton Button.left
+[2025-07-27 07:32:27] Souris - Clic à (716, 978) avec le bouton Button.left
+[2025-07-27 07:32:29] Souris - Clic à (713, 972) avec le bouton Button.left
+[2025-07-27 07:33:29] Souris - Clic à (814, 676) avec le bouton Button.left
+[2025-07-27 07:33:31] Clavier - Touche spéciale : Key.ctrl_r
+[2025-07-27 07:33:31] Clavier - Touche pressée : z
+[2025-07-27 07:33:32] Clavier - Touche pressée : z
+[2025-07-27 07:33:33] Clavier - Touche pressée : z
+[2025-07-27 07:33:36] Clavier - Touche spéciale : Key.ctrl_r
+[2025-07-27 07:33:36] Clavier - Touche pressée : z
+[2025-07-27 07:33:37] Clavier - Touche spéciale : Key.f5
+[2025-07-27 07:33:44] Souris - Clic à (624, 299) avec le bouton Button.left
+[2025-07-27 07:33:47] Souris - Clic à (1085, 599) avec le bouton Button.left
+[2025-07-27 07:33:48] Souris - Clic à (1169, 674) avec le bouton Button.left
+[2025-07-27 07:34:43] Souris - Clic à (1007, 144) avec le bouton Button.left
+[2025-07-27 07:34:44] Souris - Clic à (952, 348) avec le bouton Button.left
+[2025-07-27 07:34:48] Clavier - Touche spéciale : Key.ctrl_r
+[2025-07-27 07:34:51] Clavier - Touche pressée : a
+[2025-07-27 07:34:53] Clavier - Touche pressée : v
+[2025-07-27 07:34:54] Clavier - Touche spéciale : Key.f5
+[2025-07-27 07:35:01] Souris - Clic à (606, 278) avec le bouton Button.left
+[2025-07-27 07:35:04] Souris - Clic à (1099, 617) avec le bouton Button.left
+[2025-07-27 07:35:05] Souris - Clic à (1135, 667) avec le bouton Button.left
+[2025-07-27 07:35:33] Souris - Clic à (1077, 536) avec le bouton Button.left
+[2025-07-27 07:35:37] Souris - Clic à (1135, 535) avec le bouton Button.left
+[2025-07-27 07:35:43] Souris - Clic à (835, 550) avec le bouton Button.left
+[2025-07-27 07:35:45] Souris - Clic à (964, 534) avec le bouton Button.right
+[2025-07-27 07:35:48] Clavier - Touche spéciale : Key.ctrl_r
+[2025-07-27 07:35:48] Clavier - Touche pressée : c
+[2025-07-27 07:37:40] Souris - Clic à (799, 677) avec le bouton Button.left
+[2025-07-27 07:38:03] Souris - Clic à (739, 614) avec le bouton Button.left
+[2025-07-27 07:38:05] Clavier - Touche spéciale : Key.ctrl_r
+[2025-07-27 07:38:05] Clavier - Touche pressée : a
+[2025-07-27 07:38:06] Clavier - Touche pressée : v
+[2025-07-27 07:38:08] Clavier - Touche spéciale : Key.f5
+[2025-07-27 07:38:14] Souris - Clic à (579, 288) avec le bouton Button.left
+[2025-07-27 07:38:17] Souris - Clic à (1095, 607) avec le bouton Button.left
+[2025-07-27 07:38:18] Souris - Clic à (1168, 667) avec le bouton Button.left
+[2025-07-27 07:38:35] Souris - Clic à (843, 671) avec le bouton Button.left
+[2025-07-27 07:38:45] Clavier - Touche pressée : c
+[2025-07-27 07:38:47] Clavier - Touche spéciale : Key.ctrl_r
+[2025-07-27 07:38:48] Clavier - Touche pressée : c
+[2025-07-27 07:41:53] Souris - Clic à (911, 657) avec le bouton Button.left
+[2025-07-27 07:41:55] Clavier - Touche spéciale : Key.ctrl_r
+[2025-07-27 07:41:56] Clavier - Touche pressée : a
+[2025-07-27 07:41:56] Clavier - Touche pressée : v
+[2025-07-27 07:41:57] Clavier - Touche spéciale : Key.f5
+[2025-07-27 07:42:10] Souris - Clic à (783, 686) avec le bouton Button.left
+[2025-07-27 07:42:11] Clavier - Touche spéciale : Key.ctrl_r
+[2025-07-27 07:42:11] Clavier - Touche pressée : z
+[2025-07-27 07:42:12] Clavier - Touche pressée : z
+[2025-07-27 07:42:13] Clavier - Touche pressée : a
+[2025-07-27 07:42:13] Clavier - Touche pressée : v
+[2025-07-27 07:42:14] Clavier - Touche spéciale : Key.enter
+[2025-07-27 07:42:16] Clavier - Touche spéciale : Key.f5
+[2025-07-27 07:42:22] Souris - Clic à (633, 286) avec le bouton Button.left
+[2025-07-27 07:42:25] Souris - Clic à (1111, 612) avec le bouton Button.left
+[2025-07-27 07:42:26] Souris - Clic à (1140, 671) avec le bouton Button.left
+[2025-07-27 07:44:16] Souris - Clic à (940, 673) avec le bouton Button.left
+[2025-07-27 07:44:17] Clavier - Touche spéciale : Key.ctrl_r
+[2025-07-27 07:44:18] Clavier - Touche pressée : a
+[2025-07-27 07:44:19] Clavier - Touche pressée : v
+[2025-07-27 07:44:20] Clavier - Touche spéciale : Key.f2
+[2025-07-27 07:44:24] Clavier - Touche spéciale : Key.f5
+[2025-07-27 07:44:32] Souris - Clic à (659, 309) avec le bouton Button.left
+[2025-07-27 07:44:35] Souris - Clic à (1102, 609) avec le bouton Button.left
+[2025-07-27 07:44:38] Souris - Clic à (1169, 678) avec le bouton Button.left
+[2025-07-27 07:44:46] Souris - Clic à (868, 657) avec le bouton Button.left
+[2025-07-27 07:44:50] Souris - Clic à (1327, 657) avec le bouton Button.right
+[2025-07-27 07:44:53] Souris - Clic à (848, 677) avec le bouton Button.left
+[2025-07-27 07:44:54] Souris - Clic à (846, 673) avec le bouton Button.left
+[2025-07-27 07:44:58] Clavier - Touche spéciale : Key.ctrl_r
+[2025-07-27 07:44:58] Clavier - Touche pressée : c
