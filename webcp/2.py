@@ -2,7 +2,7 @@ import subprocess
 import os
 
 # --- MODIFIEZ CES DEUX LIGNES SEULEMENT ---
-SITE_A_TELECHARGER = "https://fr.wikipedia.org"  # <--- METTEZ L'URL DU SITE ICI
+SITE_A_TELECHARGER = "https://https://docs.opencv.org/4.x/d6/d00/tutorial_py_root.html"  # <--- METTEZ L'URL DU SITE ICI
 DOSSIER_DE_SAUVEGARDE = "save"    # <--- METTEZ LE NOM DU DOSSIER ICI
 # ------------------------------------------
 
@@ -32,6 +32,7 @@ def telecharger_site_automatiquement():
         "--wait=1",          # Attend 1 seconde entre les requêtes
         "--random-wait",     # Attend un peu plus de manière aléatoire
         f"--directory-prefix={dossier}", # Définit le dossier de sauvegarde
+        '--level=30',
         url
     ]
 
